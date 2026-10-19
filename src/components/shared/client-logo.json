@@ -1,0 +1,10 @@
+{
+  "collectionName": "components_shared_client_logos",
+  "info": { "displayName": "Client logo" },
+  "attributes": {
+    "name": { "type": "string", "required": true },
+    "logo": { "type": "media", "multiple": false, "required": true, "allowedTypes": ["images"] },
+    "width": { "type": "integer", "min": 1, "default": 120 },
+    "height": { "type": "decimal", "min": 1, "default": 40 }
+  }
+}

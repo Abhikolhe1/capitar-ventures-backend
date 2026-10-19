@@ -4,6 +4,7 @@
   "private": true,
   "description": "A Strapi application",
   "scripts": {
+    "test:phase1": "node scripts/verify-phase1.cjs",
     "build": "strapi build",
     "console": "strapi console",
     "deploy": "strapi deploy",

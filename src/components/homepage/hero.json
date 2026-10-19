@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_homepage_heroes",
+  "info": { "displayName": "Hero" },
+  "attributes": {
+    "enabled": { "type": "boolean", "default": true },
+    "announcementText": { "type": "string", "maxLength": 200 },
+    "announcementLink": { "type": "component", "component": "shared.link", "repeatable": false },
+    "heading": { "type": "text", "required": true },
+    "emphasisText": { "type": "string" },
+    "description": { "type": "text" },
+    "backgroundImage": { "type": "media", "multiple": false, "allowedTypes": ["images"] },
+    "backgroundImageMobile": { "type": "media", "multiple": false, "allowedTypes": ["images"] },
+    "backgroundVideo": { "type": "media", "multiple": false, "allowedTypes": ["videos"] },
+    "primaryCta": { "type": "component", "component": "shared.link", "repeatable": false },
+    "trustedClientsTitle": { "type": "string" },
+    "trustedClients": { "type": "component", "component": "shared.client-logo", "repeatable": true }
+  }
+}

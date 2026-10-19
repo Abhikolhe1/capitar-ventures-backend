@@ -59,3 +59,6 @@ Feel free to check out the [Strapi GitHub repository](https://github.com/strapi/
 ---
 
 <sub>🤫 Psst! [Strapi is hiring](https://strapi.io/careers).</sub>
+# Capitar Header and Hero CMS
+
+See [Phase 1 CMS setup and editing](PHASE1-CMS.md) for seeding, content models, published API routes and verification commands.

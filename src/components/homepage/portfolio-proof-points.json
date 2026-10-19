@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_homepage_portfolio_proof_points",
+  "info": { "displayName": "Portfolio & Proof Points" },
+  "attributes": {
+    "enabled": { "type": "boolean", "default": true },
+    "sectionLabel": { "type": "string", "required": true },
+    "heading": { "type": "text", "required": true },
+    "mutedText": { "type": "string" },
+    "backgroundLeft": { "type": "media", "multiple": false, "allowedTypes": ["images"] },
+    "backgroundRight": { "type": "media", "multiple": false, "allowedTypes": ["images"] },
+    "metrics": { "type": "component", "component": "homepage.proof-metric", "repeatable": true, "required": true }
+  }
+}

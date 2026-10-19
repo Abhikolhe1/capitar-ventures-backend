@@ -1,0 +1,11 @@
+{
+  "kind": "singleType",
+  "collectionName": "globals",
+  "info": { "singularName": "global", "pluralName": "globals", "displayName": "Global" },
+  "options": { "draftAndPublish": true },
+  "attributes": {
+    "brandLogo": { "type": "media", "multiple": false, "required": true, "allowedTypes": ["images"] },
+    "navigation": { "type": "component", "component": "shared.link", "repeatable": true },
+    "headerCta": { "type": "component", "component": "shared.link", "repeatable": false }
+  }
+}

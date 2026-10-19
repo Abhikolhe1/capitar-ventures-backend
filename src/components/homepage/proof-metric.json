@@ -1,0 +1,11 @@
+{
+  "collectionName": "components_homepage_proof_metrics",
+  "info": { "displayName": "Proof Metric" },
+  "attributes": {
+    "value": { "type": "decimal", "required": true, "min": 0 },
+    "prefix": { "type": "string" },
+    "valueSuffix": { "type": "string" },
+    "suffix": { "type": "string" },
+    "label": { "type": "string", "required": true }
+  }
+}
