@@ -1,0 +1,11 @@
+{
+  "collectionName": "components_homepage_editorial_cards",
+  "info": { "displayName": "Editorial card" },
+  "attributes": {
+    "category": { "type": "string" },
+    "title": { "type": "string", "required": true },
+    "description": { "type": "text" },
+    "image": { "type": "media", "multiple": false, "allowedTypes": ["images"] },
+    "href": { "type": "string" }
+  }
+}

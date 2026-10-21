@@ -1,0 +1,12 @@
+{
+  "collectionName": "components_homepage_editorial_tabs",
+  "info": { "displayName": "Editorial tab" },
+  "attributes": {
+    "label": { "type": "string", "required": true },
+    "sectionLabel": { "type": "string", "required": true },
+    "heading": { "type": "text", "required": true },
+    "emptyMessage": { "type": "string" },
+    "cta": { "type": "component", "component": "shared.link", "repeatable": false },
+    "items": { "type": "component", "component": "homepage.editorial-card", "repeatable": true }
+  }
+}

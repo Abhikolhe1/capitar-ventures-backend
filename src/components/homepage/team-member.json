@@ -1,0 +1,12 @@
+{
+  "collectionName": "components_homepage_team_members",
+  "info": { "displayName": "Team member" },
+  "attributes": {
+    "name": { "type": "string", "required": true },
+    "role": { "type": "string", "required": true },
+    "description": { "type": "text" },
+    "portrait": { "type": "media", "multiple": false, "allowedTypes": ["images"] },
+    "portraitPositionY": { "type": "decimal", "default": 50, "min": 0, "max": 100 },
+    "linkedinUrl": { "type": "string" }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "collectionName": "components_shared_footer_shortcuts",
+  "info": { "displayName": "Footer AI shortcut" },
+  "attributes": {
+    "label": { "type": "string", "required": true },
+    "href": { "type": "string" },
+    "enabled": { "type": "boolean", "default": false },
+    "icon": { "type": "media", "multiple": false, "allowedTypes": ["images"] }
+  }
+}

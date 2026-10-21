@@ -1,0 +1,11 @@
+{
+  "collectionName": "components_homepage_teams",
+  "info": { "displayName": "Capitar Team" },
+  "attributes": {
+    "enabled": { "type": "boolean", "default": true },
+    "sectionLabel": { "type": "string", "required": true, "default": "CAPITAR TEAM" },
+    "heading": { "type": "text", "required": true },
+    "description": { "type": "text" },
+    "members": { "type": "component", "component": "homepage.team-member", "repeatable": true }
+  }
+}

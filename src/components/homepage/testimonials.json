@@ -1,0 +1,10 @@
+{
+  "collectionName": "components_homepage_testimonial_sections",
+  "info": { "displayName": "Client testimonials" },
+  "attributes": {
+    "enabled": { "type": "boolean", "default": true },
+    "sectionLabel": { "type": "string", "required": true, "default": "CLIENT TESTIMONIALS" },
+    "heading": { "type": "string", "required": true },
+    "items": { "type": "component", "component": "homepage.testimonial", "repeatable": true }
+  }
+}

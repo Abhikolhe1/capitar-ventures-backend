@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_shared_footers",
+  "info": { "displayName": "Website footer" },
+  "attributes": {
+    "enabled": { "type": "boolean", "default": true },
+    "brandLogo": { "type": "media", "multiple": false, "allowedTypes": ["images"] },
+    "logoMonochrome": { "type": "boolean", "default": false },
+    "address": { "type": "text" },
+    "email": { "type": "email" },
+    "phone": { "type": "string" },
+    "aiText": { "type": "text" },
+    "aiLinks": { "type": "component", "component": "shared.footer-shortcut", "repeatable": true },
+    "navigation": { "type": "component", "component": "shared.link", "repeatable": true },
+    "socialLabel": { "type": "string", "default": "Social" },
+    "socialLinks": { "type": "component", "component": "shared.link", "repeatable": true },
+    "legalLinks": { "type": "component", "component": "shared.link", "repeatable": true },
+    "copyright": { "type": "string" },
+    "ctaHeading": { "type": "text" },
+    "cta": { "type": "component", "component": "shared.link", "repeatable": false },
+    "backgroundImage": { "type": "media", "multiple": false, "allowedTypes": ["images"] },
+    "backgroundVideo": { "type": "media", "multiple": false, "allowedTypes": ["videos"] }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_homepage_testimonials",
+  "info": { "displayName": "Client testimonial" },
+  "attributes": {
+    "quote": { "type": "text", "required": true },
+    "name": { "type": "string", "required": true },
+    "role": { "type": "string" },
+    "company": { "type": "string" },
+    "location": { "type": "string" },
+    "portrait": { "type": "media", "multiple": false, "allowedTypes": ["images"] },
+    "companyLogo": { "type": "media", "multiple": false, "allowedTypes": ["images"] },
+    "companyLogoMonochrome": { "type": "boolean", "default": false }
+  }
+}

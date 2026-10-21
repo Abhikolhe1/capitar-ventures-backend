@@ -1,0 +1,9 @@
+{
+  "collectionName": "components_homepage_insights_news",
+  "info": { "displayName": "Insights and News" },
+  "attributes": {
+    "enabled": { "type": "boolean", "default": true },
+    "insights": { "type": "component", "component": "homepage.editorial-tab", "repeatable": false, "required": true },
+    "news": { "type": "component", "component": "homepage.editorial-tab", "repeatable": false, "required": true }
+  }
+}
