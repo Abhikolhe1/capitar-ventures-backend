@@ -41,6 +41,35 @@ export interface HomepageCapitalEfficiency extends Struct.ComponentSchema {
   };
 }
 
+export interface HomepageCapitarDifference extends Struct.ComponentSchema {
+  collectionName: 'components_homepage_capitar_differences';
+  info: {
+    displayName: 'The Capitar Difference';
+  };
+  attributes: {
+    cardBackground: Schema.Attribute.Media<'images'>;
+    cta: Schema.Attribute.Component<'shared.link', false>;
+    description: Schema.Attribute.Text;
+    enabled: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+    heading: Schema.Attribute.Text & Schema.Attribute.Required;
+    items: Schema.Attribute.Component<'homepage.difference-card', true>;
+    sectionLabel: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface HomepageDifferenceCard extends Struct.ComponentSchema {
+  collectionName: 'components_homepage_difference_cards';
+  info: {
+    displayName: 'Capitar Difference Card';
+  };
+  attributes: {
+    description: Schema.Attribute.Text;
+    image: Schema.Attribute.Media<'images'>;
+    number: Schema.Attribute.String;
+    title: Schema.Attribute.Text & Schema.Attribute.Required;
+  };
+}
+
 export interface HomepageHero extends Struct.ComponentSchema {
   collectionName: 'components_homepage_heroes';
   info: {
@@ -152,6 +181,8 @@ declare module '@strapi/strapi' {
     export interface ComponentSchemas {
       'homepage.capital-benefit': HomepageCapitalBenefit;
       'homepage.capital-efficiency': HomepageCapitalEfficiency;
+      'homepage.capitar-difference': HomepageCapitarDifference;
+      'homepage.difference-card': HomepageDifferenceCard;
       'homepage.hero': HomepageHero;
       'homepage.portfolio-proof-points': HomepagePortfolioProofPoints;
       'homepage.proof-metric': HomepageProofMetric;

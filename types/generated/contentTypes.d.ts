@@ -488,6 +488,10 @@ export interface ApiHomepageHomepage extends Struct.SingleTypeSchema {
       'homepage.capital-efficiency',
       false
     >;
+    capitarDifference: Schema.Attribute.Component<
+      'homepage.capitar-difference',
+      false
+    >;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;

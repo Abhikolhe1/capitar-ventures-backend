@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_homepage_capitar_differences",
+  "info": { "displayName": "The Capitar Difference" },
+  "attributes": {
+    "enabled": { "type": "boolean", "default": true },
+    "sectionLabel": { "type": "string", "required": true },
+    "heading": { "type": "text", "required": true },
+    "description": { "type": "text" },
+    "cta": { "type": "component", "component": "shared.link", "repeatable": false },
+    "cardBackground": { "type": "media", "multiple": false, "allowedTypes": ["images"] },
+    "items": { "type": "component", "component": "homepage.difference-card", "repeatable": true }
+  }
+}
