@@ -11,7 +11,13 @@ export default factories.createCoreController('api::homepage.homepage', () => ({
       } }, portfolioProofPoints: { populate: { backgroundLeft: true, backgroundRight: true, metrics: true } },
       capitalEfficiency: { populate: { backgroundImage: true, benefits: { populate: { icon: true, artwork: true } } } },
       caseStudy: { populate: { items: { populate: { image: true, logo: true, link: true } } } },
-      capitarDifference: { populate: { cta: true, cardBackground: true, items: { populate: { image: true } } } } },
+      capitarDifference: { populate: { cta: true, cardBackground: true, items: { populate: { image: true } } } },
+      team: { populate: { members: { populate: { portrait: true } } } },
+      insightsNews: { populate: {
+        insights: { populate: { cta: true, items: { populate: { image: true } } } },
+        news: { populate: { cta: true, items: { populate: { image: true } } } },
+      } },
+      testimonials: { populate: { items: { populate: { portrait: true, companyLogo: true } } } } },
     };
     return super.find(ctx);
   },

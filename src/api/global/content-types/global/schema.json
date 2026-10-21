@@ -6,6 +6,7 @@
   "attributes": {
     "brandLogo": { "type": "media", "multiple": false, "required": true, "allowedTypes": ["images"] },
     "navigation": { "type": "component", "component": "shared.link", "repeatable": true },
-    "headerCta": { "type": "component", "component": "shared.link", "repeatable": false }
+    "headerCta": { "type": "component", "component": "shared.link", "repeatable": false },
+    "footer": { "type": "component", "component": "shared.footer", "repeatable": false }
   }
 }

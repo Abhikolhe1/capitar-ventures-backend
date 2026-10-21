@@ -458,6 +458,7 @@ export interface ApiGlobalGlobal extends Struct.SingleTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    footer: Schema.Attribute.Component<'shared.footer', false>;
     headerCta: Schema.Attribute.Component<'shared.link', false>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
@@ -498,6 +499,7 @@ export interface ApiHomepageHomepage extends Struct.SingleTypeSchema {
       Schema.Attribute.Private;
     hero: Schema.Attribute.Component<'homepage.hero', false> &
       Schema.Attribute.Required;
+    insightsNews: Schema.Attribute.Component<'homepage.insights-news', false>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -509,6 +511,8 @@ export interface ApiHomepageHomepage extends Struct.SingleTypeSchema {
       false
     >;
     publishedAt: Schema.Attribute.DateTime;
+    team: Schema.Attribute.Component<'homepage.team', false>;
+    testimonials: Schema.Attribute.Component<'homepage.testimonials', false>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;

@@ -35,6 +35,21 @@
       "type": "component",
       "component": "homepage.case-study",
       "repeatable": false
+    },
+    "team": {
+      "type": "component",
+      "component": "homepage.team",
+      "repeatable": false
+    },
+    "insightsNews": {
+      "type": "component",
+      "component": "homepage.insights-news",
+      "repeatable": false
+    },
+    "testimonials": {
+      "type": "component",
+      "component": "homepage.testimonials",
+      "repeatable": false
     }
   }
 }
