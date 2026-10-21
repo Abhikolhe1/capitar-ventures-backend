@@ -1,64 +1,13 @@
-# 🚀 Getting started with Strapi
+# Capitar Ventures CMS
 
-Strapi comes with a full featured [Command Line Interface](https://docs.strapi.io/dev-docs/cli) (CLI) which lets you scaffold and manage your project in seconds.
+Strapi backend for the Capitar homepage. Local admin: http://localhost:3035/admin .
 
-### `develop`
+## Run
+Install with npm ci. Create a local .env from .env.example if needed,and configure its required secrets/database values. Use npm run develop for development,npm run build for the production/admin build,and npm start for production mode. PORT defaults to3035; environment values override it.
 
-Start your Strapi application with autoReload enabled. [Learn more](https://docs.strapi.io/dev-docs/cli#strapi-develop)
+## Homepage content
+Content Manager > Single Types > Homepage contains Hero,Portfolio & Proof Points,Capital Efficiency,The Capitar Difference and Case Study. Edit their text,ordered items and media;Save and Publish. Global contains header branding,navigation and CTA. Enable links only when their destinations exist.
 
-```
-npm run develop
-# or
-yarn develop
-```
+GET /api/homepage returns all five sections with nested components,images,logos and links populated. GET /api/global returns header content. Frontend configuration VITE_CMS_URL must point to this backend. No separate per-section requests are required.
 
-### `start`
-
-Start your Strapi application with autoReload disabled. [Learn more](https://docs.strapi.io/dev-docs/cli#strapi-start)
-
-```
-npm run start
-# or
-yarn start
-```
-
-### `build`
-
-Build your admin panel. [Learn more](https://docs.strapi.io/dev-docs/cli#strapi-build)
-
-```
-npm run build
-# or
-yarn build
-```
-
-## ⚙️ Deployment
-
-Strapi gives you many possible deployment options for your project including [Strapi Cloud](https://cloud.strapi.io). Browse the [deployment section of the documentation](https://docs.strapi.io/dev-docs/deployment) to find the best solution for your use case.
-
-```
-yarn strapi deploy
-```
-
-## 📚 Learn more
-
-- [Resource center](https://strapi.io/resource-center) - Strapi resource center.
-- [Strapi documentation](https://docs.strapi.io) - Official Strapi documentation.
-- [Strapi tutorials](https://strapi.io/tutorials) - List of tutorials made by the core team and the community.
-- [Strapi blog](https://strapi.io/blog) - Official Strapi blog containing articles made by the Strapi team and the community.
-- [Changelog](https://strapi.io/changelog) - Find out about the Strapi product updates, new features and general improvements.
-
-Feel free to check out the [Strapi GitHub repository](https://github.com/strapi/strapi). Your feedback and contributions are welcome!
-
-## ✨ Community
-
-- [Discord](https://discord.strapi.io) - Come chat with the Strapi community including the core team.
-- [Forum](https://forum.strapi.io/) - Place to discuss, ask questions and find answers, show your Strapi project and get feedback or just talk with other Community members.
-- [Awesome Strapi](https://github.com/strapi/awesome-strapi) - A curated list of awesome things related to Strapi.
-
----
-
-<sub>🤫 Psst! [Strapi is hiring](https://strapi.io/careers).</sub>
-# Capitar Header and Hero CMS
-
-See [Phase 1 CMS setup and editing](PHASE1-CMS.md) for seeding, content models, published API routes and verification commands.
+Optional initial seeding uses CAPITAR_SEED=true and the adjacent frontend's src/content/homepage.json/public/assets/capitar; it fills missing content only and preserves existing documents. Leave seeding disabled for routine CMS edits. Existing SQLite files,uploaded media and environment secrets must be retained.

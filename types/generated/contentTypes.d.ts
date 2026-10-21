@@ -492,6 +492,7 @@ export interface ApiHomepageHomepage extends Struct.SingleTypeSchema {
       'homepage.capitar-difference',
       false
     >;
+    caseStudy: Schema.Attribute.Component<'homepage.case-study', false>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;

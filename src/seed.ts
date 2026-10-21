@@ -29,7 +29,7 @@ export async function seedCapitar(strapi: Core.Strapi) {
       ...content.global, brandLogo: await upload(content.global.brandLogo.url, 'Capitar Ventures'),
     } });
   }
-  const homepage = await strapi.documents(homepageUID).findFirst({ populate: ['portfolioProofPoints', 'capitalEfficiency', 'capitarDifference'] });
+  const homepage = await strapi.documents(homepageUID).findFirst({ populate: ['portfolioProofPoints', 'capitalEfficiency', 'capitarDifference', 'caseStudy'] });
   const proof = content.portfolioProofPoints;
   const portfolioProofPoints = proof && !homepage?.portfolioProofPoints ? {
     ...proof,
@@ -61,20 +61,33 @@ export async function seedCapitar(strapi: Core.Strapi) {
       cardBackground: difference.cardBackground ? await upload(difference.cardBackground.url, '') : undefined,
     };
   }
+  const cases = content.caseStudy;
+  let caseStudy;
+  if (cases && !homepage?.caseStudy) {
+    const items = [];
+    for (const item of cases.items) {
+      items.push({ ...item,
+        image: item.image ? await upload(item.image.url, item.image.alternativeText || '') : undefined,
+        logo: item.logo ? await upload(item.logo.url, item.logo.alternativeText || item.name) : undefined,
+      });
+    }
+    caseStudy = { ...cases, items };
+  }
   if (!homepage) {
     const hero = content.hero;
     const trustedClients = [];
     for (const client of hero.trustedClients) {
       trustedClients.push({ ...client, logo: await upload(client.logo.url, client.name) });
     }
-    await strapi.documents(homepageUID).create({ status: 'published', data: { portfolioProofPoints, capitalEfficiency, capitarDifference, hero: {
+    await strapi.documents(homepageUID).create({ status: 'published', data: { portfolioProofPoints, capitalEfficiency, capitarDifference, caseStudy, hero: {
       ...hero,
       backgroundImage: await upload(hero.backgroundImage.url, ''),
       backgroundVideo: await upload(hero.backgroundVideo.url, ''),
       trustedClients,
     } } });
-  } else if (portfolioProofPoints || capitalEfficiency || capitarDifference) {
+  } else if (portfolioProofPoints || capitalEfficiency || capitarDifference || caseStudy) {
     await strapi.documents(homepageUID).update({ documentId: homepage.documentId, status: 'published', data: {
+      ...(caseStudy ? { caseStudy } : {}),
       ...(portfolioProofPoints ? { portfolioProofPoints } : {}),
       ...(capitalEfficiency ? { capitalEfficiency } : {}),
       ...(capitarDifference ? { capitarDifference } : {}),

@@ -1,0 +1,28 @@
+{
+  "collectionName": "components_homepage_case_studies",
+  "info": {
+    "displayName": "Case Study"
+  },
+  "attributes": {
+    "enabled": {
+      "type": "boolean",
+      "default": true
+    },
+    "sectionLabel": {
+      "type": "string",
+      "required": true
+    },
+    "heading": {
+      "type": "text",
+      "required": true
+    },
+    "description": {
+      "type": "text"
+    },
+    "items": {
+      "type": "component",
+      "component": "homepage.case-study-item",
+      "repeatable": true
+    }
+  }
+}

@@ -57,6 +57,38 @@ export interface HomepageCapitarDifference extends Struct.ComponentSchema {
   };
 }
 
+export interface HomepageCaseStudy extends Struct.ComponentSchema {
+  collectionName: 'components_homepage_case_studies';
+  info: {
+    displayName: 'Case Study';
+  };
+  attributes: {
+    description: Schema.Attribute.Text;
+    enabled: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+    heading: Schema.Attribute.Text & Schema.Attribute.Required;
+    items: Schema.Attribute.Component<'homepage.case-study-item', true>;
+    sectionLabel: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface HomepageCaseStudyItem extends Struct.ComponentSchema {
+  collectionName: 'components_homepage_case_study_items';
+  info: {
+    displayName: 'Case Study Card';
+  };
+  attributes: {
+    description: Schema.Attribute.Text;
+    image: Schema.Attribute.Media<'images'>;
+    link: Schema.Attribute.Component<'shared.link', false>;
+    logo: Schema.Attribute.Media<'images'>;
+    metricLabel: Schema.Attribute.String;
+    metricSuffix: Schema.Attribute.String;
+    metricValue: Schema.Attribute.String;
+    name: Schema.Attribute.String & Schema.Attribute.Required;
+    number: Schema.Attribute.String;
+  };
+}
+
 export interface HomepageDifferenceCard extends Struct.ComponentSchema {
   collectionName: 'components_homepage_difference_cards';
   info: {
@@ -182,6 +214,8 @@ declare module '@strapi/strapi' {
       'homepage.capital-benefit': HomepageCapitalBenefit;
       'homepage.capital-efficiency': HomepageCapitalEfficiency;
       'homepage.capitar-difference': HomepageCapitarDifference;
+      'homepage.case-study': HomepageCaseStudy;
+      'homepage.case-study-item': HomepageCaseStudyItem;
       'homepage.difference-card': HomepageDifferenceCard;
       'homepage.hero': HomepageHero;
       'homepage.portfolio-proof-points': HomepagePortfolioProofPoints;

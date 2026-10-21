@@ -1,0 +1,46 @@
+{
+  "collectionName": "components_homepage_case_study_items",
+  "info": {
+    "displayName": "Case Study Card"
+  },
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "number": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "logo": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "metricValue": {
+      "type": "string"
+    },
+    "metricSuffix": {
+      "type": "string"
+    },
+    "metricLabel": {
+      "type": "string"
+    },
+    "link": {
+      "type": "component",
+      "component": "shared.link",
+      "repeatable": false
+    }
+  }
+}
