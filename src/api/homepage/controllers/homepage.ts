@@ -8,7 +8,8 @@ export default factories.createCoreController('api::homepage.homepage', () => ({
         announcementLink: true, primaryCta: true, backgroundImage: true,
         backgroundImageMobile: true, backgroundVideo: true,
         trustedClients: { populate: { logo: true } },
-      } }, portfolioProofPoints: { populate: { backgroundLeft: true, backgroundRight: true, metrics: true } } },
+      } }, portfolioProofPoints: { populate: { backgroundLeft: true, backgroundRight: true, metrics: true } },
+      capitalEfficiency: { populate: { backgroundImage: true, benefits: { populate: { icon: true, artwork: true } } } } },
     };
     return super.find(ctx);
   },

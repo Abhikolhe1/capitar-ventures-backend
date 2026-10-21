@@ -1,0 +1,12 @@
+{
+  "collectionName": "components_homepage_capital_efficiencies",
+  "info": { "displayName": "Capital Efficiency", "description": "Homepage capital benefits and original Figma illustrations" },
+  "attributes": {
+    "enabled": { "type": "boolean", "default": true },
+    "sectionLabel": { "type": "string", "required": true },
+    "heading": { "type": "text", "required": true },
+    "description": { "type": "text" },
+    "backgroundImage": { "type": "media", "multiple": false, "allowedTypes": ["images"] },
+    "benefits": { "type": "component", "repeatable": true, "component": "homepage.capital-benefit" }
+  }
+}

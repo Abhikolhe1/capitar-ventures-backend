@@ -5,6 +5,7 @@
   "options": { "draftAndPublish": true },
   "attributes": {
     "hero": { "type": "component", "component": "homepage.hero", "repeatable": false, "required": true },
-    "portfolioProofPoints": { "type": "component", "component": "homepage.portfolio-proof-points", "repeatable": false }
+    "portfolioProofPoints": { "type": "component", "component": "homepage.portfolio-proof-points", "repeatable": false },
+    "capitalEfficiency": { "type": "component", "component": "homepage.capital-efficiency", "repeatable": false }
   }
 }

@@ -29,27 +29,44 @@ export async function seedCapitar(strapi: Core.Strapi) {
       ...content.global, brandLogo: await upload(content.global.brandLogo.url, 'Capitar Ventures'),
     } });
   }
-  const homepage = await strapi.documents(homepageUID).findFirst({ populate: ['portfolioProofPoints'] });
+  const homepage = await strapi.documents(homepageUID).findFirst({ populate: ['portfolioProofPoints', 'capitalEfficiency'] });
   const proof = content.portfolioProofPoints;
   const portfolioProofPoints = proof && !homepage?.portfolioProofPoints ? {
     ...proof,
     backgroundLeft: await upload(proof.backgroundLeft.url, ''),
     backgroundRight: await upload(proof.backgroundRight.url, ''),
   } : undefined;
+  const capital = content.capitalEfficiency;
+  let capitalEfficiency;
+  if (capital && !homepage?.capitalEfficiency) {
+    const benefits = [];
+    for (const benefit of capital.benefits) {
+      benefits.push({ ...benefit,
+        icon: benefit.icon ? await upload(benefit.icon.url, '') : undefined,
+        artwork: benefit.artwork ? await upload(benefit.artwork.url, benefit.artwork.alternativeText || '') : undefined,
+      });
+    }
+    capitalEfficiency = { ...capital, benefits,
+      backgroundImage: capital.backgroundImage ? await upload(capital.backgroundImage.url, '') : undefined,
+    };
+  }
   if (!homepage) {
     const hero = content.hero;
     const trustedClients = [];
     for (const client of hero.trustedClients) {
       trustedClients.push({ ...client, logo: await upload(client.logo.url, client.name) });
     }
-    await strapi.documents(homepageUID).create({ status: 'published', data: { portfolioProofPoints, hero: {
+    await strapi.documents(homepageUID).create({ status: 'published', data: { portfolioProofPoints, capitalEfficiency, hero: {
       ...hero,
       backgroundImage: await upload(hero.backgroundImage.url, ''),
       backgroundVideo: await upload(hero.backgroundVideo.url, ''),
       trustedClients,
     } } });
-  } else if (portfolioProofPoints) {
-    await strapi.documents(homepageUID).update({ documentId: homepage.documentId, status: 'published', data: { portfolioProofPoints } });
+  } else if (portfolioProofPoints || capitalEfficiency) {
+    await strapi.documents(homepageUID).update({ documentId: homepage.documentId, status: 'published', data: {
+      ...(portfolioProofPoints ? { portfolioProofPoints } : {}),
+      ...(capitalEfficiency ? { capitalEfficiency } : {}),
+    } });
   }
   strapi.log.info('Capitar seed checked: published Global and Homepage are ready.');
 }

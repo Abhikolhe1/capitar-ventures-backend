@@ -1,0 +1,12 @@
+{
+  "collectionName": "components_homepage_capital_benefits",
+  "info": { "displayName": "Capital Benefit" },
+  "attributes": {
+    "title": { "type": "string", "required": true },
+    "description": { "type": "text" },
+    "layout": { "type": "enumeration", "enum": ["standard", "wide", "tall"], "default": "standard", "required": true },
+    "artworkWidth": { "type": "decimal", "default": 94, "min": 20, "max": 100 },
+    "icon": { "type": "media", "multiple": false, "allowedTypes": ["images"] },
+    "artwork": { "type": "media", "multiple": false, "allowedTypes": ["images"] }
+  }
+}

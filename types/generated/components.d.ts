@@ -1,5 +1,46 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface HomepageCapitalBenefit extends Struct.ComponentSchema {
+  collectionName: 'components_homepage_capital_benefits';
+  info: {
+    displayName: 'Capital Benefit';
+  };
+  attributes: {
+    artwork: Schema.Attribute.Media<'images'>;
+    artworkWidth: Schema.Attribute.Decimal &
+      Schema.Attribute.SetMinMax<
+        {
+          max: 100;
+          min: 20;
+        },
+        number
+      > &
+      Schema.Attribute.DefaultTo<94>;
+    description: Schema.Attribute.Text;
+    icon: Schema.Attribute.Media<'images'>;
+    layout: Schema.Attribute.Enumeration<['standard', 'wide', 'tall']> &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'standard'>;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface HomepageCapitalEfficiency extends Struct.ComponentSchema {
+  collectionName: 'components_homepage_capital_efficiencies';
+  info: {
+    description: 'Homepage capital benefits and original Figma illustrations';
+    displayName: 'Capital Efficiency';
+  };
+  attributes: {
+    backgroundImage: Schema.Attribute.Media<'images'>;
+    benefits: Schema.Attribute.Component<'homepage.capital-benefit', true>;
+    description: Schema.Attribute.Text;
+    enabled: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+    heading: Schema.Attribute.Text & Schema.Attribute.Required;
+    sectionLabel: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
 export interface HomepageHero extends Struct.ComponentSchema {
   collectionName: 'components_homepage_heroes';
   info: {
@@ -109,6 +150,8 @@ export interface SharedLink extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export namespace Public {
     export interface ComponentSchemas {
+      'homepage.capital-benefit': HomepageCapitalBenefit;
+      'homepage.capital-efficiency': HomepageCapitalEfficiency;
       'homepage.hero': HomepageHero;
       'homepage.portfolio-proof-points': HomepagePortfolioProofPoints;
       'homepage.proof-metric': HomepageProofMetric;
