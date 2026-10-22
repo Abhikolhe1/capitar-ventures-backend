@@ -21,6 +21,7 @@ export interface HomepageCapitalBenefit extends Struct.ComponentSchema {
     layout: Schema.Attribute.Enumeration<['standard', 'wide', 'tall']> &
       Schema.Attribute.Required &
       Schema.Attribute.DefaultTo<'standard'>;
+    mobileArtwork: Schema.Attribute.Media<'images'>;
     title: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
