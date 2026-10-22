@@ -5,7 +5,8 @@ export default factories.createCoreController('api::homepage.homepage', () => ({
     ctx.query = {
       status: 'published',
       populate: { hero: { populate: {
-        announcementLink: true, primaryCta: true, backgroundImage: true,
+        // announcementLink: true, // Announcement banner temporarily disabled.
+        primaryCta: true, backgroundImage: true,
         backgroundImageMobile: true, backgroundVideo: true, backgroundVideoMobile: true,
         trustedClients: { populate: { logo: true } },
       } }, portfolioProofPoints: { populate: { backgroundLeft: true, backgroundRight: true, metrics: true } },
@@ -19,6 +20,12 @@ export default factories.createCoreController('api::homepage.homepage', () => ({
       } },
       testimonials: { populate: { items: { populate: { portrait: true, companyLogo: true } } } } },
     };
-    return super.find(ctx);
+    const result = await super.find(ctx);
+    // Keep the saved CMS content so the announcement can be restored later.
+    if (result.data?.hero) {
+      delete result.data.hero.announcementText;
+      delete result.data.hero.announcementLink;
+    }
+    return result;
   },
 }));
