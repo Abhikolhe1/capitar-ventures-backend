@@ -15,6 +15,8 @@ export async function seedCapitar(strapi: Core.Strapi) {
     if (existing) return existing.id;
     const filepath = url.startsWith('/assets/images/')
       ? path.join(frontend, 'public/assets/images', name)
+      : url.startsWith('/assets/icons/footer/')
+      ? path.join(frontend, 'public/assets/icons/footer', name)
       : path.join(assetDirectory, name);
     const { size } = await fs.stat(filepath);
     const mimetypes: Record<string, string> = { '.svg': 'image/svg+xml', '.webp': 'image/webp', '.png': 'image/png', '.jpg': 'image/jpeg', '.jpeg': 'image/jpeg', '.mp4': 'video/mp4' };
