@@ -6,7 +6,7 @@ export default factories.createCoreController('api::homepage.homepage', () => ({
       status: 'published',
       populate: { hero: { populate: {
         announcementLink: true, primaryCta: true, backgroundImage: true,
-        backgroundImageMobile: true, backgroundVideo: true,
+        backgroundImageMobile: true, backgroundVideo: true, backgroundVideoMobile: true,
         trustedClients: { populate: { logo: true } },
       } }, portfolioProofPoints: { populate: { backgroundLeft: true, backgroundRight: true, metrics: true } },
       capitalEfficiency: { populate: { backgroundImage: true, benefits: { populate: { icon: true, artwork: true } } } },

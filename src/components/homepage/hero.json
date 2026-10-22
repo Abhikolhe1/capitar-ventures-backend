@@ -11,6 +11,10 @@
     "backgroundImage": { "type": "media", "multiple": false, "allowedTypes": ["images"] },
     "backgroundImageMobile": { "type": "media", "multiple": false, "allowedTypes": ["images"] },
     "backgroundVideo": { "type": "media", "multiple": false, "allowedTypes": ["videos"] },
+    "backgroundVideoMobile": { "type": "media", "multiple": false, "allowedTypes": ["videos"] },
+    "mobileHeading": { "type": "text" },
+    "mobileEmphasisText": { "type": "string" },
+    "mobileTrustedClientsTitle": { "type": "string" },
     "primaryCta": { "type": "component", "component": "shared.link", "repeatable": false },
     "trustedClientsTitle": { "type": "string" },
     "trustedClients": { "type": "component", "component": "shared.client-logo", "repeatable": true }

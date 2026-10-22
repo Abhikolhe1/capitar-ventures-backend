@@ -145,10 +145,14 @@ export interface HomepageHero extends Struct.ComponentSchema {
     backgroundImage: Schema.Attribute.Media<'images'>;
     backgroundImageMobile: Schema.Attribute.Media<'images'>;
     backgroundVideo: Schema.Attribute.Media<'videos'>;
+    backgroundVideoMobile: Schema.Attribute.Media<'videos'>;
     description: Schema.Attribute.Text;
     emphasisText: Schema.Attribute.String;
     enabled: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
     heading: Schema.Attribute.Text & Schema.Attribute.Required;
+    mobileEmphasisText: Schema.Attribute.String;
+    mobileHeading: Schema.Attribute.Text;
+    mobileTrustedClientsTitle: Schema.Attribute.String;
     primaryCta: Schema.Attribute.Component<'shared.link', false>;
     trustedClients: Schema.Attribute.Component<'shared.client-logo', true>;
     trustedClientsTitle: Schema.Attribute.String;
