@@ -77,7 +77,8 @@ async function main() {
         fields.delete('updatedAt');
         const content = value => Object.fromEntries(Object.entries(value).filter(([key]) => fields.has(key)));
         const snapshot = structuredClone(content(before));
-        await query.update({ where: { id: entry.id }, data: entry.data });
+        // The query lifecycle mutates its data argument; keep the plan immutable.
+        await query.update({ where: { id: entry.id }, data: { ...entry.data } });
         const after = await query.findOne({ where: { id: entry.id } });
         assert.deepEqual(content(after), { ...snapshot, ...entry.data }, `Unexpected non-text change: ${entry.uid} #${entry.id}`);
       }
