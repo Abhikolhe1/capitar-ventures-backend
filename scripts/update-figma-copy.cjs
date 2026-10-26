@@ -73,6 +73,8 @@ async function main() {
         // Strapi may attach lifecycle timestamps to its in-memory entity.
         // Compare schema fields rather than these runtime metadata properties.
         const fields = new Set(['id', ...Object.keys(app.components[entry.uid].attributes)]);
+        fields.delete('createdAt');
+        fields.delete('updatedAt');
         const content = value => Object.fromEntries(Object.entries(value).filter(([key]) => fields.has(key)));
         const snapshot = structuredClone(content(before));
         await query.update({ where: { id: entry.id }, data: entry.data });
