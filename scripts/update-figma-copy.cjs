@@ -70,9 +70,14 @@ async function main() {
         const query = app.db.query(entry.uid);
         const before = await query.findOne({ where: { id: entry.id } });
         assert.ok(before, `Missing component ${entry.uid} #${entry.id}`);
+        // Strapi may attach lifecycle timestamps to its in-memory entity.
+        // Compare schema fields rather than these runtime metadata properties.
+        const fields = new Set(['id', ...Object.keys(app.components[entry.uid].attributes)]);
+        const content = value => Object.fromEntries(Object.entries(value).filter(([key]) => fields.has(key)));
+        const snapshot = structuredClone(content(before));
         await query.update({ where: { id: entry.id }, data: entry.data });
         const after = await query.findOne({ where: { id: entry.id } });
-        assert.deepEqual(after, { ...before, ...entry.data }, `Unexpected non-text change: ${entry.uid} #${entry.id}`);
+        assert.deepEqual(content(after), { ...snapshot, ...entry.data }, `Unexpected non-text change: ${entry.uid} #${entry.id}`);
       }
     });
     console.log('Verified all requested text updates; other component fields and publication states preserved.');
