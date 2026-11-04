@@ -4,6 +4,7 @@
     "displayName": "Venture Debt signal"
   },
   "attributes": {
+    "image": { "type": "media", "multiple": false, "allowedTypes": ["images"] },
     "title": {
       "type": "string",
       "required": true
