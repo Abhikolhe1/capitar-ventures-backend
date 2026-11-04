@@ -4,6 +4,8 @@
   "private": true,
   "description": "A Strapi application",
   "scripts": {
+    "seed:venture-debt": "node scripts/seed-venture-debt.cjs",
+    "test:venture-debt": "node scripts/verify-venture-debt.cjs",
     "test:phase1": "node scripts/verify-phase1.cjs",
     "build": "strapi build",
     "console": "strapi console",

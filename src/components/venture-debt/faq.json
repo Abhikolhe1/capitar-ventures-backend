@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_vd_faq",
+  "info": {
+    "displayName": "Venture Debt faq"
+  },
+  "attributes": {
+    "enabled": {
+      "type": "boolean",
+      "default": true
+    },
+    "sectionLabel": {
+      "type": "string"
+    },
+    "heading": {
+      "type": "text"
+    },
+    "description": {
+      "type": "text"
+    },
+    "items": {
+      "type": "component",
+      "component": "venture-debt.question",
+      "repeatable": true
+    }
+  }
+}

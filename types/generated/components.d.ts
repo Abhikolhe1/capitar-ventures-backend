@@ -368,6 +368,172 @@ export interface SharedLink extends Struct.ComponentSchema {
   };
 }
 
+export interface VentureDebtBefore extends Struct.ComponentSchema {
+  collectionName: 'components_vd_before';
+  info: {
+    displayName: 'Venture Debt before';
+  };
+  attributes: {
+    description: Schema.Attribute.Text;
+    enabled: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+    glowImage: Schema.Attribute.Media<'images'>;
+    heading: Schema.Attribute.Text;
+    image: Schema.Attribute.Media<'images'>;
+    items: Schema.Attribute.Component<'venture-debt.signal', true> &
+      Schema.Attribute.SetMinMax<
+        {
+          max: 4;
+          min: 1;
+        },
+        number
+      >;
+    mutedHeading: Schema.Attribute.Text;
+    sectionLabel: Schema.Attribute.String;
+    signalsHeading: Schema.Attribute.Text;
+    signalsLabel: Schema.Attribute.String;
+    signalsMutedHeading: Schema.Attribute.Text;
+  };
+}
+
+export interface VentureDebtChapter extends Struct.ComponentSchema {
+  collectionName: 'components_vd_chapter';
+  info: {
+    displayName: 'Venture Debt chapter';
+  };
+  attributes: {
+    label: Schema.Attribute.String & Schema.Attribute.Required;
+    section: Schema.Attribute.Enumeration<
+      ['before', 'with-capitar', 'in-practice', 'before-you-decide']
+    > &
+      Schema.Attribute.Required;
+  };
+}
+
+export interface VentureDebtFaq extends Struct.ComponentSchema {
+  collectionName: 'components_vd_faq';
+  info: {
+    displayName: 'Venture Debt faq';
+  };
+  attributes: {
+    description: Schema.Attribute.Text;
+    enabled: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+    heading: Schema.Attribute.Text;
+    items: Schema.Attribute.Component<'venture-debt.question', true>;
+    sectionLabel: Schema.Attribute.String;
+  };
+}
+
+export interface VentureDebtHero extends Struct.ComponentSchema {
+  collectionName: 'components_vd_hero';
+  info: {
+    displayName: 'Venture Debt hero';
+  };
+  attributes: {
+    backgroundImage: Schema.Attribute.Media<'images'>;
+    description: Schema.Attribute.Text;
+    emphasisText: Schema.Attribute.Text;
+    enabled: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+    glassImage: Schema.Attribute.Media<'images'>;
+    glowImage: Schema.Attribute.Media<'images'>;
+    heading: Schema.Attribute.Text & Schema.Attribute.Required;
+    primaryCta: Schema.Attribute.Component<'shared.link', false>;
+    secondaryCta: Schema.Attribute.Component<'shared.link', false>;
+    sectionLabel: Schema.Attribute.String;
+  };
+}
+
+export interface VentureDebtOutcome extends Struct.ComponentSchema {
+  collectionName: 'components_vd_outcome';
+  info: {
+    displayName: 'Venture Debt outcome';
+  };
+  attributes: {
+    description: Schema.Attribute.Text;
+    icon: Schema.Attribute.Media<'images'>;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface VentureDebtPractice extends Struct.ComponentSchema {
+  collectionName: 'components_vd_practice';
+  info: {
+    displayName: 'Venture Debt practice';
+  };
+  attributes: {
+    attribution: Schema.Attribute.String;
+    cta: Schema.Attribute.Component<'shared.link', false>;
+    enabled: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+    heading: Schema.Attribute.Text;
+    image: Schema.Attribute.Media<'images'>;
+    items: Schema.Attribute.Component<'venture-debt.outcome', true> &
+      Schema.Attribute.SetMinMax<
+        {
+          max: 3;
+        },
+        number
+      >;
+    outcomeSprite: Schema.Attribute.Media<'images'>;
+    quote: Schema.Attribute.Text;
+    sectionLabel: Schema.Attribute.String;
+  };
+}
+
+export interface VentureDebtProcess extends Struct.ComponentSchema {
+  collectionName: 'components_vd_process';
+  info: {
+    displayName: 'Venture Debt process';
+  };
+  attributes: {
+    decoration: Schema.Attribute.Media<'images'>;
+    description: Schema.Attribute.Text;
+    enabled: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+    heading: Schema.Attribute.Text;
+    items: Schema.Attribute.Component<'venture-debt.step', true> &
+      Schema.Attribute.SetMinMax<
+        {
+          max: 4;
+          min: 1;
+        },
+        number
+      >;
+    sectionLabel: Schema.Attribute.String;
+  };
+}
+
+export interface VentureDebtQuestion extends Struct.ComponentSchema {
+  collectionName: 'components_vd_question';
+  info: {
+    displayName: 'Venture Debt question';
+  };
+  attributes: {
+    answer: Schema.Attribute.Text;
+    question: Schema.Attribute.Text & Schema.Attribute.Required;
+  };
+}
+
+export interface VentureDebtSignal extends Struct.ComponentSchema {
+  collectionName: 'components_vd_signal';
+  info: {
+    displayName: 'Venture Debt signal';
+  };
+  attributes: {
+    description: Schema.Attribute.Text;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface VentureDebtStep extends Struct.ComponentSchema {
+  collectionName: 'components_vd_step';
+  info: {
+    displayName: 'Venture Debt step';
+  };
+  attributes: {
+    description: Schema.Attribute.Text;
+    label: Schema.Attribute.String & Schema.Attribute.Required;
+    title: Schema.Attribute.Text & Schema.Attribute.Required;
+  };
+}
+
 declare module '@strapi/strapi' {
   export namespace Public {
     export interface ComponentSchemas {
@@ -391,6 +557,16 @@ declare module '@strapi/strapi' {
       'shared.footer': SharedFooter;
       'shared.footer-shortcut': SharedFooterShortcut;
       'shared.link': SharedLink;
+      'venture-debt.before': VentureDebtBefore;
+      'venture-debt.chapter': VentureDebtChapter;
+      'venture-debt.faq': VentureDebtFaq;
+      'venture-debt.hero': VentureDebtHero;
+      'venture-debt.outcome': VentureDebtOutcome;
+      'venture-debt.practice': VentureDebtPractice;
+      'venture-debt.process': VentureDebtProcess;
+      'venture-debt.question': VentureDebtQuestion;
+      'venture-debt.signal': VentureDebtSignal;
+      'venture-debt.step': VentureDebtStep;
     }
   }
 }

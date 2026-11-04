@@ -1,0 +1,48 @@
+{
+  "kind": "singleType",
+  "collectionName": "venture_debt_pages",
+  "info": {
+    "singularName": "venture-debt",
+    "pluralName": "venture-debts",
+    "displayName": "Venture Debt"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "timeline": {
+      "type": "component",
+      "component": "venture-debt.chapter",
+      "repeatable": true,
+      "max": 4
+    },
+    "hero": {
+      "type": "component",
+      "component": "venture-debt.hero",
+      "repeatable": false
+    },
+    "before": {
+      "type": "component",
+      "component": "venture-debt.before",
+      "repeatable": false
+    },
+    "process": {
+      "type": "component",
+      "component": "venture-debt.process",
+      "repeatable": false
+    },
+    "practice": {
+      "type": "component",
+      "component": "venture-debt.practice",
+      "repeatable": false
+    },
+    "faq": {
+      "type": "component",
+      "component": "venture-debt.faq",
+      "repeatable": false
+    }
+  }
+}

@@ -519,6 +519,46 @@ export interface ApiHomepageHomepage extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiVentureDebtVentureDebt extends Struct.SingleTypeSchema {
+  collectionName: 'venture_debt_pages';
+  info: {
+    displayName: 'Venture Debt';
+    pluralName: 'venture-debts';
+    singularName: 'venture-debt';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    before: Schema.Attribute.Component<'venture-debt.before', false>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    faq: Schema.Attribute.Component<'venture-debt.faq', false>;
+    hero: Schema.Attribute.Component<'venture-debt.hero', false>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::venture-debt.venture-debt'
+    > &
+      Schema.Attribute.Private;
+    practice: Schema.Attribute.Component<'venture-debt.practice', false>;
+    process: Schema.Attribute.Component<'venture-debt.process', false>;
+    publishedAt: Schema.Attribute.DateTime;
+    timeline: Schema.Attribute.Component<'venture-debt.chapter', true> &
+      Schema.Attribute.SetMinMax<
+        {
+          max: 4;
+        },
+        number
+      >;
+    title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface PluginContentReleasesRelease
   extends Struct.CollectionTypeSchema {
   collectionName: 'strapi_releases';
@@ -1032,6 +1072,7 @@ declare module '@strapi/strapi' {
       'admin::user': AdminUser;
       'api::global.global': ApiGlobalGlobal;
       'api::homepage.homepage': ApiHomepageHomepage;
+      'api::venture-debt.venture-debt': ApiVentureDebtVentureDebt;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;

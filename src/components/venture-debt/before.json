@@ -1,0 +1,54 @@
+{
+  "collectionName": "components_vd_before",
+  "info": {
+    "displayName": "Venture Debt before"
+  },
+  "attributes": {
+    "enabled": {
+      "type": "boolean",
+      "default": true
+    },
+    "sectionLabel": {
+      "type": "string"
+    },
+    "heading": {
+      "type": "text"
+    },
+    "mutedHeading": {
+      "type": "text"
+    },
+    "description": {
+      "type": "text"
+    },
+    "signalsLabel": {
+      "type": "string"
+    },
+    "signalsHeading": {
+      "type": "text"
+    },
+    "signalsMutedHeading": {
+      "type": "text"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "glowImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "items": {
+      "type": "component",
+      "component": "venture-debt.signal",
+      "repeatable": true,
+      "min": 1,
+      "max": 4
+    }
+  }
+}

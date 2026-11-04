@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_vd_signal",
+  "info": {
+    "displayName": "Venture Debt signal"
+  },
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text"
+    }
+  }
+}

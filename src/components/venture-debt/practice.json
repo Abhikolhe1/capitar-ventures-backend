@@ -1,0 +1,49 @@
+{
+  "collectionName": "components_vd_practice",
+  "info": {
+    "displayName": "Venture Debt practice"
+  },
+  "attributes": {
+    "enabled": {
+      "type": "boolean",
+      "default": true
+    },
+    "sectionLabel": {
+      "type": "string"
+    },
+    "heading": {
+      "type": "text"
+    },
+    "quote": {
+      "type": "text"
+    },
+    "attribution": {
+      "type": "string"
+    },
+    "cta": {
+      "type": "component",
+      "component": "shared.link",
+      "repeatable": false
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "outcomeSprite": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "items": {
+      "type": "component",
+      "component": "venture-debt.outcome",
+      "repeatable": true,
+      "max": 3
+    }
+  }
+}

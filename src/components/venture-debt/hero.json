@@ -1,0 +1,56 @@
+{
+  "collectionName": "components_vd_hero",
+  "info": {
+    "displayName": "Venture Debt hero"
+  },
+  "attributes": {
+    "enabled": {
+      "type": "boolean",
+      "default": true
+    },
+    "sectionLabel": {
+      "type": "string"
+    },
+    "heading": {
+      "type": "text",
+      "required": true
+    },
+    "emphasisText": {
+      "type": "text"
+    },
+    "description": {
+      "type": "text"
+    },
+    "primaryCta": {
+      "type": "component",
+      "component": "shared.link",
+      "repeatable": false
+    },
+    "secondaryCta": {
+      "type": "component",
+      "component": "shared.link",
+      "repeatable": false
+    },
+    "backgroundImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "glassImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "glowImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    }
+  }
+}

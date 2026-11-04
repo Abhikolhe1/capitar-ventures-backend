@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_vd_question",
+  "info": {
+    "displayName": "Venture Debt question"
+  },
+  "attributes": {
+    "question": {
+      "type": "text",
+      "required": true
+    },
+    "answer": {
+      "type": "text"
+    }
+  }
+}

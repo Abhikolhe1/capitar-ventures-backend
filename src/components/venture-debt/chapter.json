@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_vd_chapter",
+  "info": {
+    "displayName": "Venture Debt chapter"
+  },
+  "attributes": {
+    "label": {
+      "type": "string",
+      "required": true
+    },
+    "section": {
+      "type": "enumeration",
+      "enum": [
+        "before",
+        "with-capitar",
+        "in-practice",
+        "before-you-decide"
+      ],
+      "required": true
+    }
+  }
+}

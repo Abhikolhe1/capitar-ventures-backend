@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_vd_step",
+  "info": {
+    "displayName": "Venture Debt step"
+  },
+  "attributes": {
+    "label": {
+      "type": "string",
+      "required": true
+    },
+    "title": {
+      "type": "text",
+      "required": true
+    },
+    "description": {
+      "type": "text"
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_vd_outcome",
+  "info": {
+    "displayName": "Venture Debt outcome"
+  },
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text"
+    },
+    "icon": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    }
+  }
+}
