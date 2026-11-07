@@ -1,0 +1,49 @@
+{
+  "collectionName": "components_portfolio_companies_section",
+  "info": {
+    "displayName": "Portfolio companies-section"
+  },
+  "attributes": {
+    "enabled": {
+      "type": "boolean",
+      "default": true
+    },
+    "sectionLabel": {
+      "type": "string",
+      "required": true
+    },
+    "heading": {
+      "type": "text"
+    },
+    "resultsLabel": {
+      "type": "string"
+    },
+    "sectorLabel": {
+      "type": "string"
+    },
+    "stageLabel": {
+      "type": "string"
+    },
+    "allSectorsLabel": {
+      "type": "string"
+    },
+    "allStagesLabel": {
+      "type": "string"
+    },
+    "companyLabel": {
+      "type": "string"
+    },
+    "companiesLabel": {
+      "type": "string"
+    },
+    "cardTagsLabel": {
+      "type": "string"
+    },
+    "emptyHeading": {
+      "type": "string"
+    },
+    "resetLabel": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "collectionName": "components_portfolio_company",
+  "info": {
+    "displayName": "Portfolio company"
+  },
+  "attributes": {
+    "key": {
+      "type": "string",
+      "required": true
+    },
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "logo": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "description": {
+      "type": "text"
+    },
+    "sector": {
+      "type": "string"
+    },
+    "stage": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string"
+    },
+    "founder": {
+      "type": "component",
+      "component": "portfolio.founder",
+      "repeatable": false
+    }
+  }
+}

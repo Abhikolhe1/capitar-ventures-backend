@@ -1,0 +1,42 @@
+{
+  "kind": "singleType",
+  "collectionName": "portfolio_pages",
+  "info": {
+    "singularName": "portfolio",
+    "pluralName": "portfolios",
+    "displayName": "Portfolio"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "hero": {
+      "type": "component",
+      "component": "portfolio.hero",
+      "repeatable": false
+    },
+    "featuredStories": {
+      "type": "component",
+      "component": "homepage.case-study",
+      "repeatable": false
+    },
+    "companiesSection": {
+      "type": "component",
+      "component": "portfolio.companies-section",
+      "repeatable": false
+    },
+    "companies": {
+      "type": "component",
+      "component": "portfolio.company",
+      "repeatable": true
+    },
+    "conversation": {
+      "type": "component",
+      "component": "portfolio.conversation",
+      "repeatable": false
+    }
+  }
+}

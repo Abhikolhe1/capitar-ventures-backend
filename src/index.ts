@@ -1,6 +1,7 @@
 import type { Core } from '@strapi/strapi';
 import { seedCapitar } from './seed';
 import { seedVentureDebt } from './seed-venture-debt';
+import { seedPortfolio } from './seed-portfolio';
 
 export default {
   /**
@@ -21,5 +22,6 @@ export default {
   async bootstrap({ strapi }: { strapi: Core.Strapi }) {
     await seedCapitar(strapi);
     await seedVentureDebt(strapi);
+    await seedPortfolio(strapi);
   },
 };

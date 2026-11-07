@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_portfolio_founder",
+  "info": {
+    "displayName": "Portfolio founder"
+  },
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "role": {
+      "type": "string"
+    }
+  }
+}

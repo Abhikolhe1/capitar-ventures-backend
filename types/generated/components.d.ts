@@ -284,6 +284,86 @@ export interface HomepageTestimonials extends Struct.ComponentSchema {
   };
 }
 
+export interface PortfolioCompaniesSection extends Struct.ComponentSchema {
+  collectionName: 'components_portfolio_companies_section';
+  info: {
+    displayName: 'Portfolio companies-section';
+  };
+  attributes: {
+    allSectorsLabel: Schema.Attribute.String;
+    allStagesLabel: Schema.Attribute.String;
+    cardTagsLabel: Schema.Attribute.String;
+    companiesLabel: Schema.Attribute.String;
+    companyLabel: Schema.Attribute.String;
+    emptyHeading: Schema.Attribute.String;
+    enabled: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+    heading: Schema.Attribute.Text;
+    resetLabel: Schema.Attribute.String;
+    resultsLabel: Schema.Attribute.String;
+    sectionLabel: Schema.Attribute.String & Schema.Attribute.Required;
+    sectorLabel: Schema.Attribute.String;
+    stageLabel: Schema.Attribute.String;
+  };
+}
+
+export interface PortfolioCompany extends Struct.ComponentSchema {
+  collectionName: 'components_portfolio_company';
+  info: {
+    displayName: 'Portfolio company';
+  };
+  attributes: {
+    description: Schema.Attribute.Text;
+    founder: Schema.Attribute.Component<'portfolio.founder', false>;
+    key: Schema.Attribute.String & Schema.Attribute.Required;
+    logo: Schema.Attribute.Media<'images'>;
+    name: Schema.Attribute.String & Schema.Attribute.Required;
+    sector: Schema.Attribute.String;
+    stage: Schema.Attribute.String;
+    status: Schema.Attribute.String;
+  };
+}
+
+export interface PortfolioConversation extends Struct.ComponentSchema {
+  collectionName: 'components_portfolio_conversation';
+  info: {
+    displayName: 'Portfolio conversation';
+  };
+  attributes: {
+    backgroundImage: Schema.Attribute.Media<'images'>;
+    cta: Schema.Attribute.Component<'shared.link', false>;
+    description: Schema.Attribute.Text;
+    enabled: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+    heading: Schema.Attribute.Text;
+    sectionLabel: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface PortfolioFounder extends Struct.ComponentSchema {
+  collectionName: 'components_portfolio_founder';
+  info: {
+    displayName: 'Portfolio founder';
+  };
+  attributes: {
+    name: Schema.Attribute.String;
+    role: Schema.Attribute.String;
+  };
+}
+
+export interface PortfolioHero extends Struct.ComponentSchema {
+  collectionName: 'components_portfolio_hero';
+  info: {
+    displayName: 'Portfolio hero';
+  };
+  attributes: {
+    backgroundImage: Schema.Attribute.Media<'images'>;
+    cta: Schema.Attribute.Component<'shared.link', false>;
+    description: Schema.Attribute.Text;
+    emphasis: Schema.Attribute.String;
+    enabled: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+    heading: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
 export interface SharedClientLogo extends Struct.ComponentSchema {
   collectionName: 'components_shared_client_logos';
   info: {
@@ -554,6 +634,11 @@ declare module '@strapi/strapi' {
       'homepage.team-member': HomepageTeamMember;
       'homepage.testimonial': HomepageTestimonial;
       'homepage.testimonials': HomepageTestimonials;
+      'portfolio.companies-section': PortfolioCompaniesSection;
+      'portfolio.company': PortfolioCompany;
+      'portfolio.conversation': PortfolioConversation;
+      'portfolio.founder': PortfolioFounder;
+      'portfolio.hero': PortfolioHero;
       'shared.client-logo': SharedClientLogo;
       'shared.footer': SharedFooter;
       'shared.footer-shortcut': SharedFooterShortcut;
