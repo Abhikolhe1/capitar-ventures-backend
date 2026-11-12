@@ -1,0 +1,29 @@
+{
+  "kind": "collectionType",
+  "collectionName": "case_studies",
+  "info": {
+    "singularName": "case-study",
+    "pluralName": "case-studies",
+    "displayName": "Case Study",
+    "description": "Company case study pages, opened from the Portfolio cards at /portfolio/<slug>."
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "companyName": { "type": "string", "required": true },
+    "slug": { "type": "uid", "targetField": "companyName", "required": true },
+    "logo": { "type": "media", "multiple": false, "allowedTypes": ["images"] },
+    "heroImage": { "type": "media", "multiple": false, "allowedTypes": ["images"] },
+    "headline": { "type": "text" },
+    "summary": { "type": "text" },
+    "founders": { "type": "string" },
+    "sector": { "type": "string" },
+    "stage": { "type": "string" },
+    "website": { "type": "string" },
+    "metrics": { "type": "component", "component": "case-study.metric", "repeatable": true },
+    "sections": { "type": "component", "component": "case-study.section", "repeatable": true },
+    "quote": { "type": "component", "component": "case-study.quote", "repeatable": false },
+    "cta": { "type": "component", "component": "shared.link", "repeatable": false }
+  }
+}

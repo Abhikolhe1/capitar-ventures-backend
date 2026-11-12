@@ -1,0 +1,8 @@
+{
+  "collectionName": "components_case_study_sections",
+  "info": { "displayName": "Case study section" },
+  "attributes": {
+    "heading": { "type": "string", "required": true },
+    "body": { "type": "text" }
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "collectionName": "components_case_study_quotes",
+  "info": { "displayName": "Case study quote" },
+  "attributes": {
+    "text": { "type": "text" },
+    "name": { "type": "string" },
+    "role": { "type": "string" }
+  }
+}

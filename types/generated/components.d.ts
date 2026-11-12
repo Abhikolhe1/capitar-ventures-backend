@@ -203,6 +203,40 @@ export interface AboutTeamMember extends Struct.ComponentSchema {
   };
 }
 
+export interface CaseStudyMetric extends Struct.ComponentSchema {
+  collectionName: 'components_case_study_metrics';
+  info: {
+    displayName: 'Case study metric';
+  };
+  attributes: {
+    label: Schema.Attribute.String;
+    value: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface CaseStudyQuote extends Struct.ComponentSchema {
+  collectionName: 'components_case_study_quotes';
+  info: {
+    displayName: 'Case study quote';
+  };
+  attributes: {
+    name: Schema.Attribute.String;
+    role: Schema.Attribute.String;
+    text: Schema.Attribute.Text;
+  };
+}
+
+export interface CaseStudySection extends Struct.ComponentSchema {
+  collectionName: 'components_case_study_sections';
+  info: {
+    displayName: 'Case study section';
+  };
+  attributes: {
+    body: Schema.Attribute.Text;
+    heading: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
 export interface HomepageCapitalBenefit extends Struct.ComponentSchema {
   collectionName: 'components_homepage_capital_benefits';
   info: {
@@ -510,11 +544,14 @@ export interface PortfolioCompaniesSection extends Struct.ComponentSchema {
   attributes: {
     allSectorsLabel: Schema.Attribute.String;
     allStagesLabel: Schema.Attribute.String;
+    cardStageLabel: Schema.Attribute.String;
     cardTagsLabel: Schema.Attribute.String;
+    caseStudyLabel: Schema.Attribute.String;
     companiesLabel: Schema.Attribute.String;
     companyLabel: Schema.Attribute.String;
     emptyHeading: Schema.Attribute.String;
     enabled: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+    foundersLabel: Schema.Attribute.String;
     heading: Schema.Attribute.Text;
     resetLabel: Schema.Attribute.String;
     resultsLabel: Schema.Attribute.String;
@@ -530,6 +567,7 @@ export interface PortfolioCompany extends Struct.ComponentSchema {
     displayName: 'Portfolio company';
   };
   attributes: {
+    caseStudyUrl: Schema.Attribute.String;
     description: Schema.Attribute.Text;
     founder: Schema.Attribute.Component<'portfolio.founder', false>;
     key: Schema.Attribute.String & Schema.Attribute.Required;
@@ -864,6 +902,9 @@ declare module '@strapi/strapi' {
       'about.principle': AboutPrinciple;
       'about.quote': AboutQuote;
       'about.team-member': AboutTeamMember;
+      'case-study.metric': CaseStudyMetric;
+      'case-study.quote': CaseStudyQuote;
+      'case-study.section': CaseStudySection;
       'homepage.capital-benefit': HomepageCapitalBenefit;
       'homepage.capital-efficiency': HomepageCapitalEfficiency;
       'homepage.capitar-difference': HomepageCapitarDifference;

@@ -478,6 +478,48 @@ export interface ApiAboutUsAboutUs extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiCaseStudyCaseStudy extends Struct.CollectionTypeSchema {
+  collectionName: 'case_studies';
+  info: {
+    description: 'Company case study pages, opened from the Portfolio cards at /portfolio/<slug>.';
+    displayName: 'Case Study';
+    pluralName: 'case-studies';
+    singularName: 'case-study';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    companyName: Schema.Attribute.String & Schema.Attribute.Required;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    cta: Schema.Attribute.Component<'shared.link', false>;
+    founders: Schema.Attribute.String;
+    headline: Schema.Attribute.Text;
+    heroImage: Schema.Attribute.Media<'images'>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::case-study.case-study'
+    > &
+      Schema.Attribute.Private;
+    logo: Schema.Attribute.Media<'images'>;
+    metrics: Schema.Attribute.Component<'case-study.metric', true>;
+    publishedAt: Schema.Attribute.DateTime;
+    quote: Schema.Attribute.Component<'case-study.quote', false>;
+    sections: Schema.Attribute.Component<'case-study.section', true>;
+    sector: Schema.Attribute.String;
+    slug: Schema.Attribute.UID<'companyName'> & Schema.Attribute.Required;
+    stage: Schema.Attribute.String;
+    summary: Schema.Attribute.Text;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    website: Schema.Attribute.String;
+  };
+}
+
 export interface ApiGlobalGlobal extends Struct.SingleTypeSchema {
   collectionName: 'globals';
   info: {
@@ -1142,6 +1184,7 @@ declare module '@strapi/strapi' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
       'api::about-us.about-us': ApiAboutUsAboutUs;
+      'api::case-study.case-study': ApiCaseStudyCaseStudy;
       'api::global.global': ApiGlobalGlobal;
       'api::homepage.homepage': ApiHomepageHomepage;
       'api::portfolio.portfolio': ApiPortfolioPortfolio;

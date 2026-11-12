@@ -31,6 +31,9 @@
     "status": {
       "type": "string"
     },
+    "caseStudyUrl": {
+      "type": "string"
+    },
     "founder": {
       "type": "component",
       "component": "portfolio.founder",

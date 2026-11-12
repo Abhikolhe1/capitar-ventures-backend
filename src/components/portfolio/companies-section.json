@@ -39,6 +39,15 @@
     "cardTagsLabel": {
       "type": "string"
     },
+    "foundersLabel": {
+      "type": "string"
+    },
+    "cardStageLabel": {
+      "type": "string"
+    },
+    "caseStudyLabel": {
+      "type": "string"
+    },
     "emptyHeading": {
       "type": "string"
     },
