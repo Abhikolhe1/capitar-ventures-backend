@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_about_hero",
+  "info": {
+    "displayName": "About hero"
+  },
+  "attributes": {
+    "label": {
+      "type": "text"
+    },
+    "heading": {
+      "type": "text"
+    },
+    "emphasis": {
+      "type": "text"
+    },
+    "description": {
+      "type": "text"
+    },
+    "cta": {
+      "type": "component",
+      "component": "shared.link",
+      "repeatable": false
+    }
+  }
+}

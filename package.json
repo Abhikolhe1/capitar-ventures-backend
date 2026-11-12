@@ -17,7 +17,9 @@
     "upgrade": "npx @strapi/upgrade latest",
     "upgrade:dry": "npx @strapi/upgrade latest --dry",
     "seed:portfolio": "node scripts/seed-portfolio.cjs",
-    "test:portfolio": "node scripts/verify-portfolio.cjs"
+    "test:portfolio": "node scripts/verify-portfolio.cjs",
+    "seed:about-us": "node scripts/seed-about-us.cjs",
+    "test:about-us": "node scripts/verify-about-us.cjs"
   },
   "dependencies": {
     "@strapi/database": "5.52.3",

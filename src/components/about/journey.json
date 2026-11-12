@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_about_journey",
+  "info": {
+    "displayName": "About journey"
+  },
+  "attributes": {
+    "label": {
+      "type": "text"
+    },
+    "heading": {
+      "type": "text"
+    },
+    "emphasis": {
+      "type": "text"
+    },
+    "description": {
+      "type": "text"
+    },
+    "milestones": {
+      "type": "component",
+      "component": "about.milestone",
+      "repeatable": true
+    }
+  }
+}

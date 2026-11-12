@@ -1,5 +1,208 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface AboutArtwork extends Struct.ComponentSchema {
+  collectionName: 'components_about_artworks';
+  info: {
+    displayName: 'About artwork';
+  };
+  attributes: {
+    image: Schema.Attribute.Media<'images'>;
+    key: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface AboutBelief extends Struct.ComponentSchema {
+  collectionName: 'components_about_belief';
+  info: {
+    displayName: 'About belief';
+  };
+  attributes: {
+    description: Schema.Attribute.Text;
+    heading: Schema.Attribute.Text;
+    items: Schema.Attribute.Component<'about.principle', true>;
+    label: Schema.Attribute.Text;
+  };
+}
+
+export interface AboutChapter extends Struct.ComponentSchema {
+  collectionName: 'components_about_chapters';
+  info: {
+    description: 'Chapter entry for sticky navigation timeline';
+    displayName: 'About Chapter';
+  };
+  attributes: {
+    label: Schema.Attribute.String & Schema.Attribute.Required;
+    number: Schema.Attribute.String & Schema.Attribute.Required;
+    section: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface AboutConversation extends Struct.ComponentSchema {
+  collectionName: 'components_about_conversations';
+  info: {
+    description: 'Section 04 - The Conversation';
+    displayName: 'About Conversation Section';
+  };
+  attributes: {
+    chapterLabel: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'04 / The Conversation'>;
+    enabled: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+    headingEmphasis: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<"what you're building.">;
+    headingPrefix: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'Tell us'>;
+    investorCta: Schema.Attribute.Component<'shared.link', false>;
+    lead: Schema.Attribute.Text;
+    primaryCta: Schema.Attribute.Component<'shared.link', false>;
+  };
+}
+
+export interface AboutGap extends Struct.ComponentSchema {
+  collectionName: 'components_about_gaps';
+  info: {
+    description: 'Section 01 - The Gap';
+    displayName: 'About Gap Section';
+  };
+  attributes: {
+    chapterLabel: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'01 / The Gap'>;
+    cta: Schema.Attribute.Component<'shared.link', false>;
+    enabled: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+    headingEmphasis: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'Capitar'>;
+    headingPrefix: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'Why we started'>;
+    index: Schema.Attribute.String & Schema.Attribute.DefaultTo<'01'>;
+    lead: Schema.Attribute.Text;
+    missionLabel: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'Our Mission'>;
+    missionText: Schema.Attribute.Text;
+  };
+}
+
+export interface AboutHero extends Struct.ComponentSchema {
+  collectionName: 'components_about_hero';
+  info: {
+    displayName: 'About hero';
+  };
+  attributes: {
+    cta: Schema.Attribute.Component<'shared.link', false>;
+    description: Schema.Attribute.Text;
+    emphasis: Schema.Attribute.Text;
+    heading: Schema.Attribute.Text;
+    label: Schema.Attribute.Text;
+  };
+}
+
+export interface AboutJourney extends Struct.ComponentSchema {
+  collectionName: 'components_about_journey';
+  info: {
+    displayName: 'About journey';
+  };
+  attributes: {
+    description: Schema.Attribute.Text;
+    emphasis: Schema.Attribute.Text;
+    heading: Schema.Attribute.Text;
+    label: Schema.Attribute.Text;
+    milestones: Schema.Attribute.Component<'about.milestone', true>;
+  };
+}
+
+export interface AboutMember extends Struct.ComponentSchema {
+  collectionName: 'components_about_member';
+  info: {
+    displayName: 'About member';
+  };
+  attributes: {
+    biography: Schema.Attribute.Text;
+    dark: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    image: Schema.Attribute.Media<'images'>;
+    name: Schema.Attribute.String & Schema.Attribute.Required;
+    portrait: Schema.Attribute.Enumeration<['rahul', 'partner', 'bikramjit']> &
+      Schema.Attribute.DefaultTo<'rahul'>;
+    role: Schema.Attribute.Text;
+  };
+}
+
+export interface AboutMilestone extends Struct.ComponentSchema {
+  collectionName: 'components_about_milestone';
+  info: {
+    displayName: 'About milestone';
+  };
+  attributes: {
+    description: Schema.Attribute.Text;
+    period: Schema.Attribute.Text;
+    title: Schema.Attribute.Text;
+  };
+}
+
+export interface AboutMission extends Struct.ComponentSchema {
+  collectionName: 'components_about_mission';
+  info: {
+    displayName: 'About mission';
+  };
+  attributes: {
+    description: Schema.Attribute.Text;
+    emphasis: Schema.Attribute.Text;
+    heading: Schema.Attribute.Text;
+    image: Schema.Attribute.Media<'images'>;
+    label: Schema.Attribute.Text;
+  };
+}
+
+export interface AboutPeople extends Struct.ComponentSchema {
+  collectionName: 'components_about_people';
+  info: {
+    displayName: 'About people';
+  };
+  attributes: {
+    biography: Schema.Attribute.Text;
+    description: Schema.Attribute.Text;
+    heading: Schema.Attribute.Text;
+    label: Schema.Attribute.Text;
+    team: Schema.Attribute.Component<'about.member', true>;
+  };
+}
+
+export interface AboutPrinciple extends Struct.ComponentSchema {
+  collectionName: 'components_about_principle';
+  info: {
+    displayName: 'About principle';
+  };
+  attributes: {
+    description: Schema.Attribute.Text;
+    number: Schema.Attribute.Text;
+    title: Schema.Attribute.Text;
+  };
+}
+
+export interface AboutQuote extends Struct.ComponentSchema {
+  collectionName: 'components_about_quote';
+  info: {
+    displayName: 'About quote';
+  };
+  attributes: {
+    label: Schema.Attribute.Text;
+    statement: Schema.Attribute.Text;
+  };
+}
+
+export interface AboutTeamMember extends Struct.ComponentSchema {
+  collectionName: 'components_about_team_members';
+  info: {
+    description: 'Team member card';
+    displayName: 'About Team Member';
+  };
+  attributes: {
+    ask: Schema.Attribute.String;
+    experience: Schema.Attribute.Text;
+    name: Schema.Attribute.String & Schema.Attribute.Required;
+    portraitImage: Schema.Attribute.Media<'images'>;
+    portraitLabel: Schema.Attribute.String;
+    role: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
 export interface HomepageCapitalBenefit extends Struct.ComponentSchema {
   collectionName: 'components_homepage_capital_benefits';
   info: {
@@ -129,6 +332,21 @@ export interface HomepageEditorialTab extends Struct.ComponentSchema {
     items: Schema.Attribute.Component<'homepage.editorial-card', true>;
     label: Schema.Attribute.String & Schema.Attribute.Required;
     sectionLabel: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface HomepageFaq extends Struct.ComponentSchema {
+  collectionName: 'components_homepage_faq';
+  info: {
+    displayName: 'Homepage FAQ';
+  };
+  attributes: {
+    cta: Schema.Attribute.Component<'shared.link', false>;
+    description: Schema.Attribute.Text;
+    enabled: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+    heading: Schema.Attribute.Text & Schema.Attribute.Required;
+    items: Schema.Attribute.Component<'venture-debt.question', true>;
+    sectionLabel: Schema.Attribute.String;
   };
 }
 
@@ -489,6 +707,20 @@ export interface VentureDebtChapter extends Struct.ComponentSchema {
   };
 }
 
+export interface VentureDebtClosing extends Struct.ComponentSchema {
+  collectionName: 'components_vd_closing';
+  info: {
+    displayName: 'Venture Debt closing CTA';
+  };
+  attributes: {
+    cta: Schema.Attribute.Component<'shared.link', false>;
+    description: Schema.Attribute.Text;
+    enabled: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+    heading: Schema.Attribute.Text;
+    sectionLabel: Schema.Attribute.String;
+  };
+}
+
 export interface VentureDebtFaq extends Struct.ComponentSchema {
   collectionName: 'components_vd_faq';
   info: {
@@ -618,6 +850,20 @@ export interface VentureDebtStep extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export namespace Public {
     export interface ComponentSchemas {
+      'about.artwork': AboutArtwork;
+      'about.belief': AboutBelief;
+      'about.chapter': AboutChapter;
+      'about.conversation': AboutConversation;
+      'about.gap': AboutGap;
+      'about.hero': AboutHero;
+      'about.journey': AboutJourney;
+      'about.member': AboutMember;
+      'about.milestone': AboutMilestone;
+      'about.mission': AboutMission;
+      'about.people': AboutPeople;
+      'about.principle': AboutPrinciple;
+      'about.quote': AboutQuote;
+      'about.team-member': AboutTeamMember;
       'homepage.capital-benefit': HomepageCapitalBenefit;
       'homepage.capital-efficiency': HomepageCapitalEfficiency;
       'homepage.capitar-difference': HomepageCapitarDifference;
@@ -626,6 +872,7 @@ declare module '@strapi/strapi' {
       'homepage.difference-card': HomepageDifferenceCard;
       'homepage.editorial-card': HomepageEditorialCard;
       'homepage.editorial-tab': HomepageEditorialTab;
+      'homepage.faq': HomepageFaq;
       'homepage.hero': HomepageHero;
       'homepage.insights-news': HomepageInsightsNews;
       'homepage.portfolio-proof-points': HomepagePortfolioProofPoints;
@@ -645,6 +892,7 @@ declare module '@strapi/strapi' {
       'shared.link': SharedLink;
       'venture-debt.before': VentureDebtBefore;
       'venture-debt.chapter': VentureDebtChapter;
+      'venture-debt.closing': VentureDebtClosing;
       'venture-debt.faq': VentureDebtFaq;
       'venture-debt.hero': VentureDebtHero;
       'venture-debt.outcome': VentureDebtOutcome;

@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_about_people",
+  "info": {
+    "displayName": "About people"
+  },
+  "attributes": {
+    "label": {
+      "type": "text"
+    },
+    "heading": {
+      "type": "text"
+    },
+    "description": {
+      "type": "text"
+    },
+    "biography": {
+      "type": "text"
+    },
+    "team": {
+      "type": "component",
+      "component": "about.member",
+      "repeatable": true
+    }
+  }
+}

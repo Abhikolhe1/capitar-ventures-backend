@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_about_principle",
+  "info": {
+    "displayName": "About principle"
+  },
+  "attributes": {
+    "number": {
+      "type": "text"
+    },
+    "title": {
+      "type": "text"
+    },
+    "description": {
+      "type": "text"
+    }
+  }
+}

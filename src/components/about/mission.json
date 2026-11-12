@@ -1,0 +1,27 @@
+{
+  "collectionName": "components_about_mission",
+  "info": {
+    "displayName": "About mission"
+  },
+  "attributes": {
+    "label": {
+      "type": "text"
+    },
+    "heading": {
+      "type": "text"
+    },
+    "emphasis": {
+      "type": "text"
+    },
+    "description": {
+      "type": "text"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    }
+  }
+}

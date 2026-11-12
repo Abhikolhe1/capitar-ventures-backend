@@ -1,0 +1,38 @@
+{
+  "collectionName": "components_about_member",
+  "info": {
+    "displayName": "About member"
+  },
+  "attributes": {
+    "portrait": {
+      "type": "enumeration",
+      "enum": [
+        "rahul",
+        "partner",
+        "bikramjit"
+      ],
+      "default": "rahul"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "role": {
+      "type": "text"
+    },
+    "biography": {
+      "type": "text"
+    },
+    "dark": {
+      "type": "boolean",
+      "default": false
+    }
+  }
+}

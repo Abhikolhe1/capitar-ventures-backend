@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_about_milestone",
+  "info": {
+    "displayName": "About milestone"
+  },
+  "attributes": {
+    "title": {
+      "type": "text"
+    },
+    "period": {
+      "type": "text"
+    },
+    "description": {
+      "type": "text"
+    }
+  }
+}

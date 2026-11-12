@@ -1,0 +1,52 @@
+{
+  "kind": "singleType",
+  "collectionName": "about_us_pages",
+  "info": {
+    "singularName": "about-us",
+    "pluralName": "about-us-pages",
+    "displayName": "About Us"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "hero": {
+      "type": "component",
+      "component": "about.hero",
+      "repeatable": false
+    },
+    "mission": {
+      "type": "component",
+      "component": "about.mission",
+      "repeatable": false
+    },
+    "journey": {
+      "type": "component",
+      "component": "about.journey",
+      "repeatable": false
+    },
+    "belief": {
+      "type": "component",
+      "component": "about.belief",
+      "repeatable": false
+    },
+    "people": {
+      "type": "component",
+      "component": "about.people",
+      "repeatable": false
+    },
+    "quote": {
+      "type": "component",
+      "component": "about.quote",
+      "repeatable": false
+    },
+    "artworks": {
+      "type": "component",
+      "component": "about.artwork",
+      "repeatable": true
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_about_belief",
+  "info": {
+    "displayName": "About belief"
+  },
+  "attributes": {
+    "label": {
+      "type": "text"
+    },
+    "heading": {
+      "type": "text"
+    },
+    "description": {
+      "type": "text"
+    },
+    "items": {
+      "type": "component",
+      "component": "about.principle",
+      "repeatable": true
+    }
+  }
+}

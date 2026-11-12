@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_about_quote",
+  "info": {
+    "displayName": "About quote"
+  },
+  "attributes": {
+    "label": {
+      "type": "text"
+    },
+    "statement": {
+      "type": "text"
+    }
+  }
+}

@@ -2,6 +2,7 @@ import type { Core } from '@strapi/strapi';
 import { seedCapitar } from './seed';
 import { seedVentureDebt } from './seed-venture-debt';
 import { seedPortfolio } from './seed-portfolio';
+import { seedAboutUs } from './seed-about-us';
 
 export default {
   /**
@@ -23,5 +24,6 @@ export default {
     await seedCapitar(strapi);
     await seedVentureDebt(strapi);
     await seedPortfolio(strapi);
+    await seedAboutUs(strapi);
   },
 };

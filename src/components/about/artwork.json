@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_about_artworks",
+  "info": {
+    "displayName": "About artwork"
+  },
+  "attributes": {
+    "key": {
+      "type": "string",
+      "required": true
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    }
+  }
+}
