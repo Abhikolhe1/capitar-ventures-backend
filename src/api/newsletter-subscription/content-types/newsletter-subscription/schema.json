@@ -1,0 +1,37 @@
+{
+  "kind": "collectionType",
+  "collectionName": "newsletter_subscriptions",
+  "info": {
+    "singularName": "newsletter-subscription",
+    "pluralName": "newsletter-subscriptions",
+    "displayName": "Newsletter subscriptions"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "email": {
+      "type": "email",
+      "required": true,
+      "unique": true,
+      "private": true
+    },
+    "consentedAt": {
+      "type": "datetime",
+      "required": true
+    },
+    "source": {
+      "type": "enumeration",
+      "enum": [
+        "blog"
+      ],
+      "default": "blog"
+    },
+    "unsubscribeToken": {
+      "type": "string",
+      "private": true,
+      "unique": true,
+      "configurable": false
+    }
+  }
+}

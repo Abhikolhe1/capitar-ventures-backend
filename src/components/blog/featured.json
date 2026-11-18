@@ -1,0 +1,42 @@
+{
+  "collectionName": "components_blog_featured",
+  "info": {
+    "displayName": "Featured blog article"
+  },
+  "attributes": {
+    "category": {
+      "type": "string"
+    },
+    "title": {
+      "type": "text"
+    },
+    "emphasis": {
+      "type": "text"
+    },
+    "description": {
+      "type": "text"
+    },
+    "date": {
+      "type": "date"
+    },
+    "dateLabel": {
+      "type": "string"
+    },
+    "readingTime": {
+      "type": "string"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "imageAlt": {
+      "type": "string"
+    },
+    "href": {
+      "type": "string"
+    }
+  }
+}

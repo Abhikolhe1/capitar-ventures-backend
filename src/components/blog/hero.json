@@ -1,0 +1,24 @@
+{
+  "collectionName": "components_blog_heroes",
+  "info": {
+    "displayName": "Blog hero"
+  },
+  "attributes": {
+    "eyebrow": {
+      "type": "string"
+    },
+    "title": {
+      "type": "json"
+    },
+    "description": {
+      "type": "text"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    }
+  }
+}

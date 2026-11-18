@@ -1,0 +1,12 @@
+{
+  "collectionName": "components_blog_categories",
+  "info": {
+    "displayName": "Blog category"
+  },
+  "attributes": {
+    "label": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

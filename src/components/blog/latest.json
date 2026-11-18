@@ -1,0 +1,20 @@
+{
+  "collectionName": "components_blog_latest",
+  "info": {
+    "displayName": "Latest blog articles"
+  },
+  "attributes": {
+    "eyebrow": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "pageSize": {
+      "type": "integer",
+      "default": 9,
+      "min": 1,
+      "max": 30
+    }
+  }
+}

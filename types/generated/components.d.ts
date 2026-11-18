@@ -203,6 +203,100 @@ export interface AboutTeamMember extends Struct.ComponentSchema {
   };
 }
 
+export interface BlogArticle extends Struct.ComponentSchema {
+  collectionName: 'components_blog_articles';
+  info: {
+    displayName: 'Blog article card';
+  };
+  attributes: {
+    category: Schema.Attribute.String;
+    date: Schema.Attribute.Date;
+    description: Schema.Attribute.Text;
+    href: Schema.Attribute.String;
+    image: Schema.Attribute.Media<'images'>;
+    imageAlt: Schema.Attribute.String;
+    key: Schema.Attribute.String & Schema.Attribute.Required;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface BlogCategory extends Struct.ComponentSchema {
+  collectionName: 'components_blog_categories';
+  info: {
+    displayName: 'Blog category';
+  };
+  attributes: {
+    label: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface BlogFeatured extends Struct.ComponentSchema {
+  collectionName: 'components_blog_featured';
+  info: {
+    displayName: 'Featured blog article';
+  };
+  attributes: {
+    category: Schema.Attribute.String;
+    date: Schema.Attribute.Date;
+    dateLabel: Schema.Attribute.String;
+    description: Schema.Attribute.Text;
+    emphasis: Schema.Attribute.Text;
+    href: Schema.Attribute.String;
+    image: Schema.Attribute.Media<'images'>;
+    imageAlt: Schema.Attribute.String;
+    readingTime: Schema.Attribute.String;
+    title: Schema.Attribute.Text;
+  };
+}
+
+export interface BlogHero extends Struct.ComponentSchema {
+  collectionName: 'components_blog_heroes';
+  info: {
+    displayName: 'Blog hero';
+  };
+  attributes: {
+    description: Schema.Attribute.Text;
+    eyebrow: Schema.Attribute.String;
+    image: Schema.Attribute.Media<'images'>;
+    title: Schema.Attribute.JSON;
+  };
+}
+
+export interface BlogLatest extends Struct.ComponentSchema {
+  collectionName: 'components_blog_latest';
+  info: {
+    displayName: 'Latest blog articles';
+  };
+  attributes: {
+    eyebrow: Schema.Attribute.String;
+    pageSize: Schema.Attribute.Integer &
+      Schema.Attribute.SetMinMax<
+        {
+          max: 30;
+          min: 1;
+        },
+        number
+      > &
+      Schema.Attribute.DefaultTo<9>;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface BlogNewsletter extends Struct.ComponentSchema {
+  collectionName: 'components_blog_newsletters';
+  info: {
+    displayName: 'Blog newsletter banner';
+  };
+  attributes: {
+    artwork: Schema.Attribute.Media<'images'>;
+    description: Schema.Attribute.Text;
+    enabled: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+    eyebrow: Schema.Attribute.String;
+    privacyHref: Schema.Attribute.String;
+    title: Schema.Attribute.JSON;
+  };
+}
+
 export interface CaseStudyMetric extends Struct.ComponentSchema {
   collectionName: 'components_case_study_metrics';
   info: {
@@ -902,6 +996,12 @@ declare module '@strapi/strapi' {
       'about.principle': AboutPrinciple;
       'about.quote': AboutQuote;
       'about.team-member': AboutTeamMember;
+      'blog.article': BlogArticle;
+      'blog.category': BlogCategory;
+      'blog.featured': BlogFeatured;
+      'blog.hero': BlogHero;
+      'blog.latest': BlogLatest;
+      'blog.newsletter': BlogNewsletter;
       'case-study.metric': CaseStudyMetric;
       'case-study.quote': CaseStudyQuote;
       'case-study.section': CaseStudySection;

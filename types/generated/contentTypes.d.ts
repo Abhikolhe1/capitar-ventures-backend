@@ -478,6 +478,72 @@ export interface ApiAboutUsAboutUs extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiBlogArticleBlogArticle extends Struct.CollectionTypeSchema {
+  collectionName: 'blog_articles';
+  info: {
+    description: 'Article cards on the News & Insights page. Loaded one page at a time.';
+    displayName: 'Blog Article';
+    pluralName: 'blog-articles';
+    singularName: 'blog-article';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    category: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    date: Schema.Attribute.Date;
+    description: Schema.Attribute.Text;
+    href: Schema.Attribute.String;
+    image: Schema.Attribute.Media<'images'>;
+    imageAlt: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::blog-article.blog-article'
+    > &
+      Schema.Attribute.Private;
+    newsletterSentAt: Schema.Attribute.DateTime & Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiBlogBlog extends Struct.SingleTypeSchema {
+  collectionName: 'blog_pages';
+  info: {
+    displayName: 'Blog';
+    pluralName: 'blog-pages';
+    singularName: 'blog';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    categories: Schema.Attribute.Component<'blog.category', true>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    featured: Schema.Attribute.Component<'blog.featured', false>;
+    hero: Schema.Attribute.Component<'blog.hero', false>;
+    latest: Schema.Attribute.Component<'blog.latest', false>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::blog.blog'> &
+      Schema.Attribute.Private;
+    newsletter: Schema.Attribute.Component<'blog.newsletter', false>;
+    publishedAt: Schema.Attribute.DateTime;
+    title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiCaseStudyCaseStudy extends Struct.CollectionTypeSchema {
   collectionName: 'case_studies';
   info: {
@@ -590,6 +656,44 @@ export interface ApiHomepageHomepage extends Struct.SingleTypeSchema {
     publishedAt: Schema.Attribute.DateTime;
     team: Schema.Attribute.Component<'homepage.team', false>;
     testimonials: Schema.Attribute.Component<'homepage.testimonials', false>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiNewsletterSubscriptionNewsletterSubscription
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'newsletter_subscriptions';
+  info: {
+    displayName: 'Newsletter subscriptions';
+    pluralName: 'newsletter-subscriptions';
+    singularName: 'newsletter-subscription';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    consentedAt: Schema.Attribute.DateTime & Schema.Attribute.Required;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    email: Schema.Attribute.Email &
+      Schema.Attribute.Required &
+      Schema.Attribute.Private &
+      Schema.Attribute.Unique;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::newsletter-subscription.newsletter-subscription'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    source: Schema.Attribute.Enumeration<['blog']> &
+      Schema.Attribute.DefaultTo<'blog'>;
+    unsubscribeToken: Schema.Attribute.String &
+      Schema.Attribute.Private &
+      Schema.Attribute.Unique;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1184,9 +1288,12 @@ declare module '@strapi/strapi' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
       'api::about-us.about-us': ApiAboutUsAboutUs;
+      'api::blog-article.blog-article': ApiBlogArticleBlogArticle;
+      'api::blog.blog': ApiBlogBlog;
       'api::case-study.case-study': ApiCaseStudyCaseStudy;
       'api::global.global': ApiGlobalGlobal;
       'api::homepage.homepage': ApiHomepageHomepage;
+      'api::newsletter-subscription.newsletter-subscription': ApiNewsletterSubscriptionNewsletterSubscription;
       'api::portfolio.portfolio': ApiPortfolioPortfolio;
       'api::venture-debt.venture-debt': ApiVentureDebtVentureDebt;
       'plugin::content-releases.release': PluginContentReleasesRelease;

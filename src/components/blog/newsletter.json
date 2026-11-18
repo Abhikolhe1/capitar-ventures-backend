@@ -1,0 +1,31 @@
+{
+  "collectionName": "components_blog_newsletters",
+  "info": {
+    "displayName": "Blog newsletter banner"
+  },
+  "attributes": {
+    "eyebrow": {
+      "type": "string"
+    },
+    "title": {
+      "type": "json"
+    },
+    "description": {
+      "type": "text"
+    },
+    "artwork": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "privacyHref": {
+      "type": "string"
+    },
+    "enabled": {
+      "type": "boolean",
+      "default": true
+    }
+  }
+}

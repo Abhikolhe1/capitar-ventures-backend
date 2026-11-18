@@ -1,0 +1,45 @@
+{
+  "kind": "collectionType",
+  "collectionName": "blog_articles",
+  "info": {
+    "singularName": "blog-article",
+    "pluralName": "blog-articles",
+    "displayName": "Blog Article",
+    "description": "Article cards on the News & Insights page. Loaded one page at a time."
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "category": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "date": {
+      "type": "date"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "imageAlt": {
+      "type": "string"
+    },
+    "href": {
+      "type": "string"
+    },
+    "newsletterSentAt": {
+      "type": "datetime",
+      "private": true
+    }
+  }
+}

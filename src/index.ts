@@ -3,6 +3,8 @@ import { seedCapitar } from './seed';
 import { seedVentureDebt } from './seed-venture-debt';
 import { seedPortfolio } from './seed-portfolio';
 import { seedAboutUs } from './seed-about-us';
+import { seedBlog } from './seed-blog';
+import { registerNewsletterOnPublish } from './newsletter';
 
 export default {
   /**
@@ -11,7 +13,10 @@ export default {
    *
    * This gives you an opportunity to extend code.
    */
-  register(/* { strapi }: { strapi: Core.Strapi } */) {},
+  register({ strapi }: { strapi: Core.Strapi }) {
+    // Email subscribers when a new Blog Article is published.
+    registerNewsletterOnPublish(strapi);
+  },
 
   /**
    * An asynchronous bootstrap function that runs before
@@ -25,5 +30,6 @@ export default {
     await seedVentureDebt(strapi);
     await seedPortfolio(strapi);
     await seedAboutUs(strapi);
+    await seedBlog(strapi);
   },
 };

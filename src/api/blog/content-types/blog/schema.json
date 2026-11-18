@@ -1,0 +1,42 @@
+{
+  "kind": "singleType",
+  "collectionName": "blog_pages",
+  "info": {
+    "singularName": "blog",
+    "pluralName": "blog-pages",
+    "displayName": "Blog"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "hero": {
+      "type": "component",
+      "component": "blog.hero",
+      "repeatable": false
+    },
+    "categories": {
+      "type": "component",
+      "component": "blog.category",
+      "repeatable": true
+    },
+    "featured": {
+      "type": "component",
+      "component": "blog.featured",
+      "repeatable": false
+    },
+    "latest": {
+      "type": "component",
+      "component": "blog.latest",
+      "repeatable": false
+    },
+    "newsletter": {
+      "type": "component",
+      "component": "blog.newsletter",
+      "repeatable": false
+    }
+  }
+}

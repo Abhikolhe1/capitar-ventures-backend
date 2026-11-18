@@ -19,12 +19,16 @@
     "seed:portfolio": "node scripts/seed-portfolio.cjs",
     "test:portfolio": "node scripts/verify-portfolio.cjs",
     "seed:about-us": "node scripts/seed-about-us.cjs",
-    "test:about-us": "node scripts/verify-about-us.cjs"
+    "test:about-us": "node scripts/verify-about-us.cjs",
+    "seed:blog": "node scripts/seed-blog.cjs",
+    "test:blog": "node scripts/verify-blog.cjs",
+    "test:newsletter": "node scripts/verify-newsletter.cjs"
   },
   "dependencies": {
     "@strapi/database": "5.52.3",
     "@strapi/plugin-cloud": "5.52.3",
     "@strapi/plugin-users-permissions": "5.52.3",
+    "@strapi/provider-email-nodemailer": "5.52.3",
     "@strapi/strapi": "5.52.3",
     "better-sqlite3": "12.8.0",
     "react": "^18.0.0",
