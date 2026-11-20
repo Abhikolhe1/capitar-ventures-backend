@@ -881,7 +881,6 @@ export interface VentureDebtHero extends Struct.ComponentSchema {
     glowImage: Schema.Attribute.Media<'images'>;
     heading: Schema.Attribute.Text & Schema.Attribute.Required;
     primaryCta: Schema.Attribute.Component<'shared.link', false>;
-    secondaryCta: Schema.Attribute.Component<'shared.link', false>;
     sectionLabel: Schema.Attribute.String;
   };
 }

@@ -26,11 +26,6 @@
       "component": "shared.link",
       "repeatable": false
     },
-    "secondaryCta": {
-      "type": "component",
-      "component": "shared.link",
-      "repeatable": false
-    },
     "backgroundImage": {
       "type": "media",
       "multiple": false,

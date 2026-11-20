@@ -30,6 +30,9 @@
     "biography": {
       "type": "text"
     },
+    "linkedinUrl": {
+      "type": "string"
+    },
     "dark": {
       "type": "boolean",
       "default": false
