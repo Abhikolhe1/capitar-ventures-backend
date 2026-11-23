@@ -22,7 +22,8 @@
     "test:about-us": "node scripts/verify-about-us.cjs",
     "seed:blog": "node scripts/seed-blog.cjs",
     "test:blog": "node scripts/verify-blog.cjs",
-    "test:newsletter": "node scripts/verify-newsletter.cjs"
+    "test:newsletter": "node scripts/verify-newsletter.cjs",
+    "sync:homepage-team": "node scripts/sync-homepage-team.cjs"
   },
   "dependencies": {
     "@strapi/database": "5.52.3",

@@ -7,6 +7,7 @@
     "description": { "type": "text" },
     "portrait": { "type": "media", "multiple": false, "allowedTypes": ["images"] },
     "portraitPositionY": { "type": "decimal", "default": 50, "min": 0, "max": 100 },
-    "linkedinUrl": { "type": "string" }
+    "linkedinUrl": { "type": "string" },
+    "showOnHomepage": { "type": "boolean", "default": true }
   }
 }
