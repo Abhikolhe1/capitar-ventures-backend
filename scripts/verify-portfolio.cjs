@@ -21,7 +21,24 @@ async function main() {
       assert.equal(response.status, 200);
       return (await response.json()).data;
     };
+    const page = async (query = '') => {
+      const response = await fetch(`http://127.0.0.1:3049/api/portfolio/companies${query}`);
+      assert.equal(response.status, 200);
+      return response.json();
+    };
     const original = await read();
+    assert.equal(original.companies, undefined, 'Companies are only served page by page');
+    const first = await page();
+    assert.equal(first.data.length, 9, 'Default page size is 9');
+    assert.equal(first.meta.pagination.total, 12);
+    const second = await page('?limit=9&skip=9');
+    assert.equal(second.data.length, 3);
+    assert.equal(second.data[0].name, (await page('?limit=12')).data[9].name);
+    const sector = first.meta.sectors[0];
+    const filtered = await page(`?sector=${encodeURIComponent(sector)}&limit=50`);
+    assert.ok(filtered.data.length && filtered.data.every(company => company.sector === sector));
+    assert.equal(filtered.meta.pagination.total, filtered.data.length);
+    original.companies = (await page('?limit=50')).data;
     assert.equal(original.companies.length, 12);
     assert.equal(original.featuredStories.items.length, 4);
     assert.ok(original.hero.heading);
@@ -40,9 +57,10 @@ async function main() {
       companies: [{key:'cms-company',name:'CMS Company',description:'CMS-managed company',sector:'Technology',stage:'Series A',founder:{name:'CMS Founder',role:'CEO'},logo:original.companies[0].logo.id}],
     } });
     assert.equal((await read('?status=draft&populate=*')).conversation.heading, original.conversation.heading, 'Draft query cannot expose unpublished content');
-    assert.equal((await read()).companies.length, 12);
+    assert.equal((await page()).meta.pagination.total, 12);
     await app.documents(uid).publish({ documentId: original.documentId });
     const published = await read();
+    published.companies = (await page()).data;
     assert.equal(published.conversation.heading, 'Draft-only headline');
     assert.equal(published.companies.length, 1);
     assert.equal(published.companies[0].founder.name, 'CMS Founder');
@@ -54,7 +72,7 @@ async function main() {
     }
     await app.documents(uid).update({documentId:original.documentId,status:'draft',data:{companies:[]}});
     await app.documents(uid).publish({documentId:original.documentId});
-    assert.deepEqual((await read()).companies, [], 'An intentional empty list stays empty');
+    assert.deepEqual((await page()).data, [], 'An intentional empty list stays empty');
     console.log('PASS: Portfolio sections, uploaded assets, company edits/order, seed idempotence, private drafts, publishing, read-only endpoint and empty list.');
   } finally {
     for (const file of await app.db.query('plugin::upload.file').findMany()) await app.plugin('upload').service('upload').remove(file);
