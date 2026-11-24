@@ -41,3 +41,16 @@ Existing privacy drafts/content and custom footer values are retained. If a foot
 has no Privacy entry, the seed adds it to the Global draft without publishing unrelated
 changes. Production bootstrap can explicitly opt in with `CAPITAR_SEED_PRIVACY_POLICY=true`;
 routine starts leave this disabled. Retain a database backup before a first seed.
+
+### Admin editor isolation (Strapi 5.52.3)
+
+`src/admin/vite.config.ts` keys the Content Manager editor by content-type UID.
+This prevents fields from the previous single type reading the next type's component
+layouts during client-side navigation. Saving, publishing and changing document status
+within the same type do not remount the editor. The narrow build transform fails if
+the upstream target changes; review it when upgrading Strapi.
+
+To check navigation, save and publish, use an isolated local database with a temporary
+admin account and run `node scripts/verify-admin-navigation.cjs` with `CMS_TEST_URL`,
+`CMS_TEST_EMAIL` and `CMS_TEST_PASSWORD`. This uses Chrome/Playwright from the adjacent
+frontend checkout. The test refuses remote hosts because it edits and publishes a QA title.
