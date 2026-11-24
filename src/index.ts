@@ -4,6 +4,7 @@ import { seedVentureDebt } from './seed-venture-debt';
 import { seedPortfolio } from './seed-portfolio';
 import { seedAboutUs } from './seed-about-us';
 import { seedBlog } from './seed-blog';
+import { seedPrivacyPolicy } from './seed-privacy-policy';
 import { registerNewsletterOnPublish } from './newsletter';
 
 export default {
@@ -31,5 +32,6 @@ export default {
     await seedPortfolio(strapi);
     await seedAboutUs(strapi);
     await seedBlog(strapi);
+    await seedPrivacyPolicy(strapi);
   },
 };

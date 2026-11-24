@@ -4,6 +4,8 @@
   "private": true,
   "description": "A Strapi application",
   "scripts": {
+    "seed:privacy-policy": "node scripts/seed-privacy-policy.cjs",
+    "test:privacy-policy": "node scripts/verify-privacy-policy.cjs",
     "seed:venture-debt": "node scripts/seed-venture-debt.cjs",
     "test:venture-debt": "node scripts/verify-venture-debt.cjs",
     "test:phase1": "node scripts/verify-phase1.cjs",

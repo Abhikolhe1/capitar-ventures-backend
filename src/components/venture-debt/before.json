@@ -20,9 +20,6 @@
     "description": {
       "type": "text"
     },
-    "signalsLabel": {
-      "type": "string"
-    },
     "signalsHeading": {
       "type": "text"
     },

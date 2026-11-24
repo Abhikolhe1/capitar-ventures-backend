@@ -741,6 +741,17 @@ export interface SharedClientLogo extends Struct.ComponentSchema {
   };
 }
 
+export interface PrivacySection extends Struct.ComponentSchema {
+  collectionName: 'components_privacy_sections';
+  info: {
+    displayName: 'Privacy Policy section';
+  };
+  attributes: {
+    blocks: Schema.Attribute.Blocks & Schema.Attribute.Required;
+    heading: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
 export interface SharedFooter extends Struct.ComponentSchema {
   collectionName: 'components_shared_footers';
   info: {
@@ -763,6 +774,8 @@ export interface SharedFooter extends Struct.ComponentSchema {
       Schema.Attribute.DefaultTo<false>;
     navigation: Schema.Attribute.Component<'shared.link', true>;
     phone: Schema.Attribute.String;
+    registrationDetails: Schema.Attribute.Text;
+    registrationLabel: Schema.Attribute.String & Schema.Attribute.DefaultTo<'SEBI Registration No.:'>;
     socialLabel: Schema.Attribute.String & Schema.Attribute.DefaultTo<'Social'>;
     socialLinks: Schema.Attribute.Component<'shared.link', true>;
   };
@@ -1027,6 +1040,7 @@ declare module '@strapi/strapi' {
       'portfolio.founder': PortfolioFounder;
       'portfolio.hero': PortfolioHero;
       'shared.client-logo': SharedClientLogo;
+      'privacy.section': PrivacySection;
       'shared.footer': SharedFooter;
       'shared.footer-shortcut': SharedFooterShortcut;
       'shared.link': SharedLink;

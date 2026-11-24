@@ -2,6 +2,8 @@
   "collectionName": "components_shared_footers",
   "info": { "displayName": "Website footer" },
   "attributes": {
+    "registrationLabel": { "type": "string", "default": "SEBI Registration No.:" },
+    "registrationDetails": { "type": "text" },
     "enabled": { "type": "boolean", "default": true },
     "brandLogo": { "type": "media", "multiple": false, "allowedTypes": ["images"] },
     "logoMonochrome": { "type": "boolean", "default": false },
