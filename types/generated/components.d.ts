@@ -18,65 +18,10 @@ export interface AboutBelief extends Struct.ComponentSchema {
   };
   attributes: {
     description: Schema.Attribute.Text;
+    enabled: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
     heading: Schema.Attribute.Text;
     items: Schema.Attribute.Component<'about.principle', true>;
     label: Schema.Attribute.Text;
-  };
-}
-
-export interface AboutChapter extends Struct.ComponentSchema {
-  collectionName: 'components_about_chapters';
-  info: {
-    description: 'Chapter entry for sticky navigation timeline';
-    displayName: 'About Chapter';
-  };
-  attributes: {
-    label: Schema.Attribute.String & Schema.Attribute.Required;
-    number: Schema.Attribute.String & Schema.Attribute.Required;
-    section: Schema.Attribute.String & Schema.Attribute.Required;
-  };
-}
-
-export interface AboutConversation extends Struct.ComponentSchema {
-  collectionName: 'components_about_conversations';
-  info: {
-    description: 'Section 04 - The Conversation';
-    displayName: 'About Conversation Section';
-  };
-  attributes: {
-    chapterLabel: Schema.Attribute.String &
-      Schema.Attribute.DefaultTo<'04 / The Conversation'>;
-    enabled: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
-    headingEmphasis: Schema.Attribute.String &
-      Schema.Attribute.DefaultTo<"what you're building.">;
-    headingPrefix: Schema.Attribute.String &
-      Schema.Attribute.DefaultTo<'Tell us'>;
-    investorCta: Schema.Attribute.Component<'shared.link', false>;
-    lead: Schema.Attribute.Text;
-    primaryCta: Schema.Attribute.Component<'shared.link', false>;
-  };
-}
-
-export interface AboutGap extends Struct.ComponentSchema {
-  collectionName: 'components_about_gaps';
-  info: {
-    description: 'Section 01 - The Gap';
-    displayName: 'About Gap Section';
-  };
-  attributes: {
-    chapterLabel: Schema.Attribute.String &
-      Schema.Attribute.DefaultTo<'01 / The Gap'>;
-    cta: Schema.Attribute.Component<'shared.link', false>;
-    enabled: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
-    headingEmphasis: Schema.Attribute.String &
-      Schema.Attribute.DefaultTo<'Capitar'>;
-    headingPrefix: Schema.Attribute.String &
-      Schema.Attribute.DefaultTo<'Why we started'>;
-    index: Schema.Attribute.String & Schema.Attribute.DefaultTo<'01'>;
-    lead: Schema.Attribute.Text;
-    missionLabel: Schema.Attribute.String &
-      Schema.Attribute.DefaultTo<'Our Mission'>;
-    missionText: Schema.Attribute.Text;
   };
 }
 
@@ -117,6 +62,7 @@ export interface AboutMember extends Struct.ComponentSchema {
     biography: Schema.Attribute.Text;
     dark: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     image: Schema.Attribute.Media<'images'>;
+    linkedinUrl: Schema.Attribute.String;
     name: Schema.Attribute.String & Schema.Attribute.Required;
     portrait: Schema.Attribute.Enumeration<['rahul', 'partner', 'bikramjit']> &
       Schema.Attribute.DefaultTo<'rahul'>;
@@ -184,39 +130,6 @@ export interface AboutQuote extends Struct.ComponentSchema {
   attributes: {
     label: Schema.Attribute.Text;
     statement: Schema.Attribute.Text;
-  };
-}
-
-export interface AboutTeamMember extends Struct.ComponentSchema {
-  collectionName: 'components_about_team_members';
-  info: {
-    description: 'Team member card';
-    displayName: 'About Team Member';
-  };
-  attributes: {
-    ask: Schema.Attribute.String;
-    experience: Schema.Attribute.Text;
-    name: Schema.Attribute.String & Schema.Attribute.Required;
-    portraitImage: Schema.Attribute.Media<'images'>;
-    portraitLabel: Schema.Attribute.String;
-    role: Schema.Attribute.String & Schema.Attribute.Required;
-  };
-}
-
-export interface BlogArticle extends Struct.ComponentSchema {
-  collectionName: 'components_blog_articles';
-  info: {
-    displayName: 'Blog article card';
-  };
-  attributes: {
-    category: Schema.Attribute.String;
-    date: Schema.Attribute.Date;
-    description: Schema.Attribute.Text;
-    href: Schema.Attribute.String;
-    image: Schema.Attribute.Media<'images'>;
-    imageAlt: Schema.Attribute.String;
-    key: Schema.Attribute.String & Schema.Attribute.Required;
-    title: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
 
@@ -463,21 +376,6 @@ export interface HomepageEditorialTab extends Struct.ComponentSchema {
   };
 }
 
-export interface HomepageFaq extends Struct.ComponentSchema {
-  collectionName: 'components_homepage_faq';
-  info: {
-    displayName: 'Homepage FAQ';
-  };
-  attributes: {
-    cta: Schema.Attribute.Component<'shared.link', false>;
-    description: Schema.Attribute.Text;
-    enabled: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
-    heading: Schema.Attribute.Text & Schema.Attribute.Required;
-    items: Schema.Attribute.Component<'venture-debt.question', true>;
-    sectionLabel: Schema.Attribute.String;
-  };
-}
-
 export interface HomepageHero extends Struct.ComponentSchema {
   collectionName: 'components_homepage_heroes';
   info: {
@@ -594,6 +492,7 @@ export interface HomepageTeamMember extends Struct.ComponentSchema {
       > &
       Schema.Attribute.DefaultTo<50>;
     role: Schema.Attribute.String & Schema.Attribute.Required;
+    showOnHomepage: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
   };
 }
 
@@ -670,6 +569,7 @@ export interface PortfolioCompany extends Struct.ComponentSchema {
     sector: Schema.Attribute.String;
     stage: Schema.Attribute.String;
     status: Schema.Attribute.String;
+    websiteUrl: Schema.Attribute.String;
   };
 }
 
@@ -714,6 +614,17 @@ export interface PortfolioHero extends Struct.ComponentSchema {
   };
 }
 
+export interface PrivacySection extends Struct.ComponentSchema {
+  collectionName: 'components_privacy_sections';
+  info: {
+    displayName: 'Privacy Policy section';
+  };
+  attributes: {
+    blocks: Schema.Attribute.Blocks & Schema.Attribute.Required;
+    heading: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
 export interface SharedClientLogo extends Struct.ComponentSchema {
   collectionName: 'components_shared_client_logos';
   info: {
@@ -741,17 +652,6 @@ export interface SharedClientLogo extends Struct.ComponentSchema {
   };
 }
 
-export interface PrivacySection extends Struct.ComponentSchema {
-  collectionName: 'components_privacy_sections';
-  info: {
-    displayName: 'Privacy Policy section';
-  };
-  attributes: {
-    blocks: Schema.Attribute.Blocks & Schema.Attribute.Required;
-    heading: Schema.Attribute.String & Schema.Attribute.Required;
-  };
-}
-
 export interface SharedFooter extends Struct.ComponentSchema {
   collectionName: 'components_shared_footers';
   info: {
@@ -775,7 +675,8 @@ export interface SharedFooter extends Struct.ComponentSchema {
     navigation: Schema.Attribute.Component<'shared.link', true>;
     phone: Schema.Attribute.String;
     registrationDetails: Schema.Attribute.Text;
-    registrationLabel: Schema.Attribute.String & Schema.Attribute.DefaultTo<'SEBI Registration No.:'>;
+    registrationLabel: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'SEBI Registration No.:'>;
     socialLabel: Schema.Attribute.String & Schema.Attribute.DefaultTo<'Social'>;
     socialLinks: Schema.Attribute.Component<'shared.link', true>;
   };
@@ -833,7 +734,6 @@ export interface VentureDebtBefore extends Struct.ComponentSchema {
     mutedHeading: Schema.Attribute.Text;
     sectionLabel: Schema.Attribute.String;
     signalsHeading: Schema.Attribute.Text;
-    signalsLabel: Schema.Attribute.String;
     signalsMutedHeading: Schema.Attribute.Text;
   };
 }
@@ -849,20 +749,6 @@ export interface VentureDebtChapter extends Struct.ComponentSchema {
       ['before', 'with-capitar', 'in-practice', 'before-you-decide']
     > &
       Schema.Attribute.Required;
-  };
-}
-
-export interface VentureDebtClosing extends Struct.ComponentSchema {
-  collectionName: 'components_vd_closing';
-  info: {
-    displayName: 'Venture Debt closing CTA';
-  };
-  attributes: {
-    cta: Schema.Attribute.Component<'shared.link', false>;
-    description: Schema.Attribute.Text;
-    enabled: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
-    heading: Schema.Attribute.Text;
-    sectionLabel: Schema.Attribute.String;
   };
 }
 
@@ -996,9 +882,6 @@ declare module '@strapi/strapi' {
     export interface ComponentSchemas {
       'about.artwork': AboutArtwork;
       'about.belief': AboutBelief;
-      'about.chapter': AboutChapter;
-      'about.conversation': AboutConversation;
-      'about.gap': AboutGap;
       'about.hero': AboutHero;
       'about.journey': AboutJourney;
       'about.member': AboutMember;
@@ -1007,8 +890,6 @@ declare module '@strapi/strapi' {
       'about.people': AboutPeople;
       'about.principle': AboutPrinciple;
       'about.quote': AboutQuote;
-      'about.team-member': AboutTeamMember;
-      'blog.article': BlogArticle;
       'blog.category': BlogCategory;
       'blog.featured': BlogFeatured;
       'blog.hero': BlogHero;
@@ -1025,7 +906,6 @@ declare module '@strapi/strapi' {
       'homepage.difference-card': HomepageDifferenceCard;
       'homepage.editorial-card': HomepageEditorialCard;
       'homepage.editorial-tab': HomepageEditorialTab;
-      'homepage.faq': HomepageFaq;
       'homepage.hero': HomepageHero;
       'homepage.insights-news': HomepageInsightsNews;
       'homepage.portfolio-proof-points': HomepagePortfolioProofPoints;
@@ -1039,14 +919,13 @@ declare module '@strapi/strapi' {
       'portfolio.conversation': PortfolioConversation;
       'portfolio.founder': PortfolioFounder;
       'portfolio.hero': PortfolioHero;
-      'shared.client-logo': SharedClientLogo;
       'privacy.section': PrivacySection;
+      'shared.client-logo': SharedClientLogo;
       'shared.footer': SharedFooter;
       'shared.footer-shortcut': SharedFooterShortcut;
       'shared.link': SharedLink;
       'venture-debt.before': VentureDebtBefore;
       'venture-debt.chapter': VentureDebtChapter;
-      'venture-debt.closing': VentureDebtClosing;
       'venture-debt.faq': VentureDebtFaq;
       'venture-debt.hero': VentureDebtHero;
       'venture-debt.outcome': VentureDebtOutcome;
